@@ -16,7 +16,9 @@ const IndexPage = () => {
       <h1>Test header</h1>
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
-      <p>{authorData.name}</p>
+      <p>
+        this is testing graphql query hook from contentful : {authorData.name}
+      </p>
       <StaticImage
         src="../images/gatsby-astronaut.png"
         width={300}
