@@ -1,0 +1,33 @@
+import { useStaticQuery, graphql } from "gatsby"
+
+export const useAuthorDataQuery = () => {
+  const authorDataQuery = useStaticQuery(graphql`
+    query AuthorDataQuery {
+      allContentfulAuthor {
+        edges {
+          node {
+            about {
+              about
+            }
+            authorImage {
+              description
+              gatsbyImageData
+              id
+              title
+            }
+            brief {
+              brief
+            }
+            email
+            github
+            id
+            instagram
+            name
+          }
+        }
+      }
+    }
+  `)
+  const authorData = authorDataQuery.allContentfulAuthor.edges[0].node
+  return authorData
+}

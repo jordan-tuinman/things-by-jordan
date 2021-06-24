@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Things by Jordan`,
@@ -35,8 +39,8 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `process.env.THINGS_BY_JORDAN_SPACE_ID`,
-        accessToken: `process.env.THINGS_BY_JORDAN_CDA_TOKEN`,
+        spaceId: `5gupedvg8vix`,
+        accessToken: process.env.GATSBY_THINGS_BY_JORDAN_CDA_TOKEN,
       },
     },
   ],
