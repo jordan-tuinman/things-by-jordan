@@ -44,24 +44,27 @@ const FooterWrapper = styled.div`
 const FooterDesc = styled.div`
   h1 {
     margin-bottom: 1rem;
+    font-family: "Green Fuz";
   }
 
   @media screen and (max-width: 400px) {
-    padding: 1rem;
+    padding: 0 1rem;
+    padding-top: 1rem;
   }
 
   p {
-    margin-bottom: 2rem;
+    font-size: 0.8rem;
   }
 `
 
 const Socials = styled.div`
   display: flex;
   justify-content: center;
+  padding-top: 1rem;
 `
 
 const Copyright = styled.p`
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   margin-top: 2rem;
   margin-bottom: 0;
 `
