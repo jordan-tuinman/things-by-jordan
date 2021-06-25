@@ -56,9 +56,9 @@ const WorkContainer = styled.div`
   }
 `
 
-const WorkHeading = styled.div`
-  font-weight: 400;
-  font-size: clamp(1.25rem, 3vw, 2rem);
+const WorkHeading = styled.p`
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: bold;
   text-align: center;
   margin-bottom: 3rem;
   color: #000;

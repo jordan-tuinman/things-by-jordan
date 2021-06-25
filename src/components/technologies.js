@@ -16,7 +16,7 @@ import {
 const Technologies = () => {
   return (
     <Container>
-      <Heading>Technologies</Heading>
+      <Heading>Technologies:</Heading>
       <Wrapper>
         <HtmlIcon className="tech" href="https://html.spec.whatwg.org/">
           <SiHtml5 />

@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
 .greenfuz {
   font-family: 'Green Fuz';
   color: #1A1A1A;
+  letter-spacing: .1rem;
 }
 
 .navbar.active {
