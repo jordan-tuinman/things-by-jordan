@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 
+// TODO: icons colour on hover and adjust padding/margin - closer to about section
+
 // React Icons:
 import {
   SiReact,

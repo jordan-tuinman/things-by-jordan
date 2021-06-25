@@ -26,7 +26,6 @@ const Header = () => {
   }
 
   function changeNavColor() {
-    console.log(window.scrollY)
     if (window.scrollY >= 80) {
       setNavbar(true)
     } else {
