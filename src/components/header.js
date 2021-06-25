@@ -18,17 +18,30 @@ import { useSiteDataQuery } from "../hooks/useSiteDataQuery"
 const Header = () => {
   const siteData = useSiteDataQuery()
   const [bool, setBool] = useState(false)
+  const [navbar, setNavbar] = useState(false)
 
   function toggle() {
     console.log(bool)
     setBool(!bool)
   }
 
+  function changeNavColor() {
+    console.log(window.scrollY)
+    if (window.scrollY >= 80) {
+      setNavbar(true)
+    } else {
+      setNavbar(false)
+    }
+  }
+
+  window.addEventListener("scroll", changeNavColor)
+
   return (
     <>
-      <Nav>
+      <Nav className={navbar ? "navbar active" : "navbar"}>
         <NavLink to="/">
           <Logo
+            className={navbar ? "logo active" : "logo"}
             image={siteData.siteLogo.gatsbyImageData}
             alt={siteData.siteLogo.title}
           />
@@ -65,7 +78,7 @@ const Nav = styled.nav`
   top: 0;
   z-index: 100;
   background: transparent;
-  height: 80px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -111,6 +124,4 @@ const NavMenu = styled.div`
   padding: 0 1rem;
 `
 
-const Logo = styled(GatsbyImage)`
-  width: 160px;
-`
+const Logo = styled(GatsbyImage)``
