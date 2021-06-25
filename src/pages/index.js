@@ -19,7 +19,7 @@ const IndexPage = () => {
       <Seo title="Home" />
       <Hero />
       <About />
-      <Technologies heading="Technologies I know" />
+      <Technologies heading="Technologies" />
       <Work heading="Work Things" />
     </Layout>
   )
