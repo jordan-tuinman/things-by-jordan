@@ -1,10 +1,11 @@
 import React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 
+// Components:
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Hero from "../components/hero"
 
+// Contentful data:
 import { useAuthorDataQuery } from "../hooks/useAuthorDataQuery"
 
 const IndexPage = () => {
@@ -13,24 +14,8 @@ const IndexPage = () => {
   return (
     <Layout>
       <Seo title="Home" />
+      <Hero />
       <h1>Test header</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>
-        this is testing graphql query hook from contentful : {authorData.name}
-      </p>
-      <StaticImage
-        src="../images/gatsby-astronaut.png"
-        width={300}
-        quality={95}
-        formats={["AUTO", "WEBP", "AVIF"]}
-        alt="A Gatsby astronaut"
-        style={{ marginBottom: `1.45rem` }}
-      />
-      <p>
-        <Link to="/page-2/">Go to page 2</Link> <br />
-        <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-      </p>
     </Layout>
   )
 }

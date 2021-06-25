@@ -12,6 +12,12 @@ export const useSiteDataQuery = () => {
               description
               title
             }
+            landingImageText {
+              gatsbyImageData
+              id
+              description
+              title
+            }
             siteLogo {
               gatsbyImageData
               id
