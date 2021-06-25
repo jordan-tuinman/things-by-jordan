@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Hero from "../components/hero"
 import About from "../components/about"
+import Technologies from "../components/technologies"
 
 // Contentful data:
 import { useAuthorDataQuery } from "../hooks/useAuthorDataQuery"
@@ -17,6 +18,7 @@ const IndexPage = () => {
       <Seo title="Home" />
       <Hero />
       <About />
+      <Technologies heading="Technologies I know" />
       <h1>Test header</h1>
     </Layout>
   )

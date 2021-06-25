@@ -30,6 +30,7 @@ const About = ({ textContent }) => {
           </TextWrapper>
           <TextWrapper>
             <p>
+              {/* {textContent} */}
               My name is Jordan Tuinman. I'm a full stack developer with a
               difficult to say last name! I graduated from Enspiral Dev Academy
               in March 2021, and since then have alone worked on a few projects.
