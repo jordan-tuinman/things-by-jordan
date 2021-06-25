@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 
 import { HiMenuAlt4 } from "react-icons/hi"
@@ -16,18 +16,14 @@ import { useSiteDataQuery } from "../hooks/useSiteDataQuery"
 
 const Header = () => {
   const siteData = useSiteDataQuery()
+
   return (
     <Nav>
       <NavLink to="/">
-        {/* <StaticImage
-          src="../images/tbj-logo.png"
-          width={200}
-          quality={95}
-          formats={['AUTO', 'WEBP', 'AVIF']}
-          alt="thingsbyjordan-logo"
-          style={{ marginBottom: `1.45rem` }}
-        /> */}
-        {siteData.siteTitle}
+        <Logo
+          image={siteData.siteLogo.gatsbyImageData}
+          alt={siteData.siteLogo.title}
+        />
       </NavLink>
       <Bars />
       <NavMenu>
@@ -86,4 +82,8 @@ const NavMenu = styled.div`
   @media screen and (max-width: 768px) {
     display: none;
   }
+`
+
+const Logo = styled(GatsbyImage)`
+  width: 160px;
 `

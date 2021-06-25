@@ -12,13 +12,13 @@ const Hero = () => {
     <HeroContainer>
       <HeroImage
         image={siteData.landingImage.gatsbyImageData}
-        alt={siteData.landingImage.desciption}
+        alt={siteData.landingImage.title}
       />
       <InnerImageWrapper>
         <GatsbyImage
           layout="fullWidth"
           image={siteData.landingImageText.gatsbyImageData}
-          alt={siteData.landingImageText.desciption}
+          alt={siteData.landingImageText.title}
         />
       </InnerImageWrapper>
     </HeroContainer>
