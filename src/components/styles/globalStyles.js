@@ -46,4 +46,10 @@ export const GlobalStyle = createGlobalStyle`
   color: #fff;
   text-decoration: underline;
 }
+
+.tech:hover {
+  transition: 0.3s !important;
+  transform: translateY(-4px);
+  cursor: pointer;
+}
 `

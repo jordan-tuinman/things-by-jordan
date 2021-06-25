@@ -21,7 +21,6 @@ const Header = () => {
   const [navbar, setNavbar] = useState(false)
 
   function toggle() {
-    console.log(bool)
     setBool(!bool)
   }
 
@@ -98,6 +97,7 @@ const NavLink = styled(Link)`
   font-size: 1.8rem;
   height: 100%;
   cursor: pointer;
+  font-family: "Green Fuz";
 `
 
 const BurgerMenu = styled(HiMenuAlt4)`

@@ -7,6 +7,7 @@ import Button from "./button"
 
 // Contentful data:
 import { useAuthorDataQuery } from "../hooks/useAuthorDataQuery"
+import Technologies from "./technologies"
 
 // TODO: pass in data from contentful as textContent to reuse component on about page and index
 // TODO: image on hover from b&w to colour
@@ -20,7 +21,6 @@ const About = ({ textContent }) => {
       <ContentWrapper>
         <ColumnOne>
           <AboutImage
-            className="blackAndWhite"
             image={authorData.authorImage.gatsbyImageData}
             alt={authorData.authorImage.title}
           />
@@ -31,6 +31,7 @@ const About = ({ textContent }) => {
           </TextWrapper>
           <TextWrapper>
             <p>{textContent}</p>
+            <Technologies />
           </TextWrapper>
           <ButtonWrapper>
             <Button primary="true" round="true" to="/about">
@@ -50,7 +51,6 @@ const AboutContainer = styled.div`
   background: #fcfcfc;
   color: #000;
   padding: 3rem calc((100vw - 1300px) / 2);
-  padding-bottom: 0;
 `
 
 const Description = styled.p`
@@ -70,6 +70,10 @@ const ContentWrapper = styled.div`
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
+  }
+
+  @media screen and (max-width: 400px) {
+    padding: 0 2rem;
   }
 `
 
