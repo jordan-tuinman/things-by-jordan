@@ -4,10 +4,15 @@ import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
 * {
-  font-family: 'Green Fuz', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.greenfuz {
+  font-family: 'Green Fuz';
+  color: #1A1A1A;
 }
 
 .navbar.active {

@@ -16,7 +16,7 @@ const About = ({ textContent }) => {
 
   return (
     <AboutContainer>
-      <Description>a little bit about me</Description>
+      <Description className="greenfuz">some things about me</Description>
       <ContentWrapper>
         <ColumnOne>
           <AboutImage
@@ -30,16 +30,7 @@ const About = ({ textContent }) => {
             <h3>Hey, I'm Jordan!</h3>
           </TextWrapper>
           <TextWrapper>
-            <p>
-              {/* {textContent} */}
-              My name is Jordan Tuinman. I'm a full stack developer with a
-              difficult to say last name! I graduated from Enspiral Dev Academy
-              in March 2021, and since then have alone worked on a few projects.
-              I previously worked for Microsoft Japan, in Data Centers all
-              across Tokyo. In my spare time, I like to draw with anything I can
-              get my hands on, and roll around in pajamas at my local BJJ club.
-              Oh, and also read books and watch shows in Japanese.
-            </p>
+            <p>{textContent}</p>
           </TextWrapper>
           <ButtonWrapper>
             <Button primary="true" round="true" to="/about">
@@ -58,8 +49,8 @@ const AboutContainer = styled.div`
   width: 100%;
   background: #fcfcfc;
   color: #000;
-  padding: 5rem calc((100vw - 1300px) / 2);
-  height: 100%;
+  padding: 3rem calc((100vw - 1300px) / 2);
+  padding-bottom: 0;
 `
 
 const Description = styled.p`
@@ -85,11 +76,10 @@ const ContentWrapper = styled.div`
 const ColumnOne = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  margin-top: 2rem;
 `
 
 const AboutImage = styled(GatsbyImage)`
-  height: 100%;
+  height: 60vh;
 `
 
 const ColumnTwo = styled.div`
@@ -103,6 +93,7 @@ const TextWrapper = styled.div`
   h3 {
     margin-botom: 1rem;
     font-size: 1.5rem;
+    color: #1a1a1a;
   }
 
   p {

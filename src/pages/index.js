@@ -18,7 +18,7 @@ const IndexPage = () => {
     <Layout>
       <Seo title="Home" />
       <Hero />
-      <About />
+      <About textContent={authorData.brief.brief} />
       <Technologies heading="Technologies" />
       <Work heading="Work Things" />
     </Layout>
