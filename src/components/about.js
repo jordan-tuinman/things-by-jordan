@@ -89,7 +89,6 @@ const ColumnOne = styled.div`
 `
 
 const AboutImage = styled(GatsbyImage)`
-  border-radius: 10px;
   height: 100%;
 `
 

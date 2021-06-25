@@ -6,8 +6,6 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { useWorkDataQuery } from "../hooks/useWorkDataQuery"
 
 // TODO: add dynamically created links to project cards
-// TODO: re-style - remove margins etc
-// TODO: images to colour from b&w on hover
 
 const Work = ({ heading }) => {
   const workData = useWorkDataQuery()
@@ -44,7 +42,7 @@ export default Work
 const WorkContainer = styled.div`
   min-height: 60vh;
   padding: 5rem calc((100vw - 1300px) / 2);
-  background: #fcfcfc;
+  background: #f5f5f5;
   color: #000;
 `
 
@@ -77,16 +75,14 @@ const ProjectCard = styled.div`
   width: 100%;
   height: 300px;
   position: relative;
-  border-radius: 10px;
   transition: 0.2s ease;
-  background: #fff;
+  background: #fcfcfc;
 `
 
 const ProjectImage = styled(GatsbyImage)`
-  height: 80%;
+  height: 83%;
   max-width: 100%;
   position: relative;
-  border-radius: 10px 10px 0px 0px;
   filter: brightness(70%);
   transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 
@@ -128,12 +124,12 @@ const ProjectTitle = styled.p`
 `
 const ProjectDate = styled.p`
   display: block;
-  font-weight: 400;
+  font-weight: bold;
   font-size: 0.8rem;
 `
 
 const ProjectBrief = styled.p`
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.5;
 `

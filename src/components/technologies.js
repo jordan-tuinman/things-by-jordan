@@ -37,7 +37,7 @@ export default Technologies
 
 const Container = styled.div`
   padding: 3rem 0;
-  background: #f5f5f5;
+  background: #fcfcfc;
   color: #1a1a1a;
 `
 
