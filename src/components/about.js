@@ -20,6 +20,7 @@ const About = ({ textContent }) => {
       <ContentWrapper>
         <ColumnOne>
           <AboutImage
+            className="blackAndWhite"
             image={authorData.authorImage.gatsbyImageData}
             alt={authorData.authorImage.title}
           />

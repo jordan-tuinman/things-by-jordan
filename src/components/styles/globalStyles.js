@@ -26,4 +26,12 @@ export const GlobalStyle = createGlobalStyle`
   display: block;
   width: 150px;
 }
+
+.blackAndWhite {
+  filter: grayscale(60%);
+}
+
+.blackAndWhite:hover {
+  filter: none;
+}
 `
