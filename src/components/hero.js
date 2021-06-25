@@ -11,6 +11,10 @@ const Hero = () => {
   return (
     <HeroContainer>
       <HeroImage
+        image={siteData.alternateLandingImage.gatsbyImageData}
+        alt={siteData.alternateLandingImage.title}
+      />
+      <AlternateHeroImage
         image={siteData.landingImage.gatsbyImageData}
         alt={siteData.landingImage.title}
       />
@@ -54,4 +58,20 @@ const HeroImage = styled(GatsbyImage)`
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
+
+  @media screen and (max-width: 1050px) {
+    display: none;
+  }
+`
+
+const AlternateHeroImage = styled(GatsbyImage)`
+  display: none;
+
+  @media screen and (max-width: 1050px) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
 `

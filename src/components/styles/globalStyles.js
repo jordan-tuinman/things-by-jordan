@@ -4,7 +4,7 @@ import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
 * {
-  font-family: sans-serif;
+  font-family: 'Green Fuz', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -21,7 +21,6 @@ export const GlobalStyle = createGlobalStyle`
 .logo {
   display: none;
 }
-
 .logo.active {
   display: block;
   width: 150px;
@@ -30,8 +29,16 @@ export const GlobalStyle = createGlobalStyle`
 .blackAndWhite {
   filter: grayscale(60%);
 }
-
 .blackAndWhite:hover {
   filter: none;
+}
+
+.navlink:hover {
+  color: #fff;
+}
+
+.navlink:active {
+  color: #fff;
+  text-decoration: underline;
 }
 `

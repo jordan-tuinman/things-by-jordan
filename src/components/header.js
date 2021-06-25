@@ -49,7 +49,7 @@ const Header = () => {
           <NavMenu>
             {bool ? (
               menuData.map((item, index) => (
-                <NavLink to={item.link} key={index}>
+                <NavLink className="navlink" to={item.link} key={index}>
                   {item.title}
                 </NavLink>
               ))
@@ -90,11 +90,12 @@ const MenuWrapper = styled.div`
 `
 
 const NavLink = styled(Link)`
-  color: #fff;
+  color: #e6e6e6;
   display: flex;
   align-items: center;
   text-decoration: none;
   padding: 0 1rem;
+  font-size: 1.8rem;
   height: 100%;
   cursor: pointer;
 `
@@ -103,16 +104,16 @@ const BurgerMenu = styled(HiMenuAlt4)`
   display: block;
   top: 0;
   right: 0;
-  font-size: 1.8rem;
+  font-size: 2rem;
   cursor: pointer;
-  color: #fff;
+  color: #e6e6e6;
 `
 
 const BurgerMenuClose = styled(CgClose)`
   display: block;
   top: 0;
   right: 0;
-  font-size: 1.8rem;
+  font-size: 2rem;
   cursor: pointer;
   color: #fff;
 `
