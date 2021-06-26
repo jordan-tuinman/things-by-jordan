@@ -7,7 +7,9 @@ export const useAuthorDataQuery = () => {
         edges {
           node {
             about {
-              about
+              childMarkdownRemark {
+                html
+              }
             }
             authorImage {
               description
@@ -16,7 +18,9 @@ export const useAuthorDataQuery = () => {
               title
             }
             brief {
-              brief
+              childMarkdownRemark {
+                html
+              }
             }
             email
             github

@@ -29,8 +29,12 @@ const About = ({ textContent }) => {
           <TextWrapper>
             <h3>Hey, I'm Jordan!</h3>
           </TextWrapper>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: `${textContent}`,
+            }}
+          />
           <TextWrapper>
-            <p>{textContent}</p>
             <Technologies />
           </TextWrapper>
           <ButtonWrapper>
