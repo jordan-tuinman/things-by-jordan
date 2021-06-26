@@ -2,6 +2,10 @@ import React from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 
+//  React Icons:
+import { MdEmail } from "react-icons/md"
+import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa"
+
 // Components:
 import Button from "./button"
 
@@ -11,12 +15,20 @@ import Technologies from "./technologies"
 
 // TODO: pass in data from contentful as textContent to reuse component on about page and index
 
-const About = ({ heading, textContent, title, technologies, button }) => {
+const About = ({
+  heading,
+  textContent,
+  title,
+  technologies,
+  button,
+  socials,
+}) => {
   const authorData = useAuthorDataQuery()
 
   return (
     <AboutContainer>
       <Description className="greenfuz">{heading}</Description>
+
       <ContentWrapper>
         <ColumnOne>
           <AboutImage
@@ -27,7 +39,7 @@ const About = ({ heading, textContent, title, technologies, button }) => {
         <ColumnTwo>
           <TextWrapper>
             <h2>{title}</h2>
-            <List
+            <Text
               dangerouslySetInnerHTML={{
                 __html: `${textContent}`,
               }}
@@ -42,6 +54,30 @@ const About = ({ heading, textContent, title, technologies, button }) => {
                 more about me
               </Button>
             </ButtonWrapper>
+          ) : (
+            <></>
+          )}
+          {socials ? (
+            <Wrapper>
+              <SocialIcon
+                target="_blank"
+                href="https://github.com/jordan-tuinman"
+              >
+                <FaGithub />
+              </SocialIcon>
+              {/* <SocialIcon target="_blank" href="https://www.instagram.com/jordantuna/">
+        <FaInstagram />
+      </SocialIcon> */}
+              <SocialIcon
+                target="_blank"
+                href="https://www.linkedin.com/in/jordan-tuinman/"
+              >
+                <FaLinkedin />
+              </SocialIcon>
+              <SocialIcon href="mailto:thingsbyjordan@gmail.com">
+                <MdEmail />
+              </SocialIcon>
+            </Wrapper>
           ) : (
             <></>
           )}
@@ -64,7 +100,7 @@ const Description = styled.h2`
   text-align: start;
   text-align: center;
   margin-bottom: 2rem;
-  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: bold;
 `
 
@@ -72,7 +108,6 @@ const ContentWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 15px;
-  align-items: center;
   padding: 0 4rem;
 
   @media screen and (max-width: 768px) {
@@ -87,24 +122,56 @@ const ContentWrapper = styled.div`
 const ColumnOne = styled.div`
   display: grid;
   grid-template-columns: 1fr;
+  padding-top: 1rem;
 `
 
 const AboutImage = styled(GatsbyImage)`
-  height: 100%;
+  height: 80vh;
+
+  @media screen and (max-width: 1050px) {
+    height: 60vh;
+  }
+
+  @media screen and (max-width: 400px) {
+    height: 50vh;
+  }
+`
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  width: 100%;
+  background: #fcfcfc;
+  padding: 0 0.5rem;
+  font-size: 1.5rem;
+`
+
+const SocialIcon = styled.a`
+  padding: 0 0.5rem;
+  color: #1a1a1a;
+  transition: 0.3s !important;
+
+  &:hover {
+    color: #3b3b3b;
+    transform: translateY(-2px);
+  }
 `
 
 const ColumnTwo = styled.div`
   display: grid;
   grid-template-columns: 1fr;
+  align-items: center;
+  padding: 0 1rem;
 `
 
-const List = styled.div`
+const Text = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   line-height: 2;
   padding-top: 1.5rem;
-  padding-left: 1rem;
 
   a {
     color: inherit;

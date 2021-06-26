@@ -16,7 +16,9 @@ const AboutPage = () => {
     <Layout>
       <About
         heading="About me"
+        title="Hey! My name is Jordan Tuinman."
         textContent={authorData.about.childMarkdownRemark.html}
+        socials="true"
       />
       <Wrapper>
         <InnerWrapper>
@@ -42,8 +44,8 @@ const Wrapper = styled.div`
 const InnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 70%;
   justify-content: center;
   background: #fcfcfc;
-  padding: 1rem 0;
+  padding-bottom: 1rem;
 `
