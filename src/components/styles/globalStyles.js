@@ -5,7 +5,7 @@ import { createGlobalStyle } from "styled-components"
 export const GlobalStyle = createGlobalStyle`
 @font-face {
   font-family: 'Green Fuz';
-  src: local('Green Fuz'), url(../fonts/green-fuz.ttf) format('truetype');
+  src: local('Green Fuz'), url(../../fonts/green-fuz.ttf) format('truetype');
 }
 
 * {
@@ -59,5 +59,54 @@ export const GlobalStyle = createGlobalStyle`
   cursor: pointer;
 }
 
+.mobileNav {
+  color: #000;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.menu-bars {
+  display: block;
+  top: 0;
+  right: 0;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+.mobile-menu {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );  
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: start;
+  position: fixed;
+  top: 0;
+  padding-top: 2.5rem;
+  right: -100%;
+  transition: 850ms;
+}
+
+.mobile-menu.active {
+  right: 0;
+  transition: 350ms;
+}
+
+.mobile-menu-icons {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );  
+}
 
 `

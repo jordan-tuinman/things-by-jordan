@@ -19,11 +19,13 @@ const Header = () => {
   const siteData = useSiteDataQuery()
   const [bool, setBool] = useState(false)
   const [navbar, setNavbar] = useState(false)
+  const [sidebar, setSidebar] = useState(false)
 
   function toggle() {
     setBool(!bool)
   }
 
+  window.addEventListener("scroll", changeNavColor)
   function changeNavColor() {
     if (window.scrollY >= 80) {
       setNavbar(true)
@@ -32,7 +34,9 @@ const Header = () => {
     }
   }
 
-  window.addEventListener("scroll", changeNavColor)
+  function showSidebar() {
+    setSidebar(!sidebar)
+  }
 
   return (
     <>
@@ -65,16 +69,76 @@ const Header = () => {
           </NavMenu>
         </MenuWrapper>
       </Nav>
+
+      <MobileNav
+        onClick={() => {
+          showSidebar()
+        }}
+      >
+        {sidebar ? (
+          <BurgerMenuClose />
+        ) : (
+          <BurgerMenu className={navbar ? "mobile-menu-icons" : ""} />
+        )}
+        <Sidebar className={sidebar ? "mobile-menu active" : "mobile-menu"}>
+          <LinkWrapper>
+            {sidebar ? (
+              menuData.map((item, index) => (
+                <SideBarLink className="navlink" to={item.link} key={index}>
+                  {item.title}
+                </SideBarLink>
+              ))
+            ) : (
+              <></>
+            )}
+          </LinkWrapper>
+        </Sidebar>
+      </MobileNav>
     </>
   )
 }
 
 export default Header
 
+const MobileNav = styled.nav`
+  display: none;
+
+  @media screen and (max-width: 400px) {
+    position: sticky;
+    top: 0;
+    background: transparent;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0.5rem 1rem;
+    z-index: 100;
+  }
+`
+
+const Sidebar = styled.div``
+
+const SideBarLink = styled(Link)`
+  color: #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-align: right;
+  font-size: 1.5rem;
+  padding: 1rem 1rem;
+  cursor: pointer;
+  font-family: "Green Fuz";
+`
+
+const LinkWrapper = styled.div`
+  width: 100%;
+  padding-top: 3rem;
+`
+
 const Nav = styled.nav`
   position: sticky;
   top: 0;
-  z-index: 100;
   background: transparent;
   height: 100px;
   display: flex;
@@ -82,6 +146,10 @@ const Nav = styled.nav`
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1300px) / 2);
   z-index: 100;
+
+  @media screen and (max-width: 400px) {
+    display: none;
+  }
 `
 
 const MenuWrapper = styled.div`
@@ -104,16 +172,16 @@ const BurgerMenu = styled(HiMenuAlt4)`
   display: block;
   top: 0;
   right: 0;
-  font-size: 2rem;
+  font-size: 2.5rem;
   cursor: pointer;
-  color: #e6e6e6;
+  color: #fff;
 `
 
 const BurgerMenuClose = styled(CgClose)`
   display: block;
   top: 0;
   right: 0;
-  font-size: 2rem;
+  font-size: 2.5rem;
   cursor: pointer;
   color: #fff;
 `
@@ -121,7 +189,7 @@ const BurgerMenuClose = styled(CgClose)`
 const NavMenu = styled.div`
   display: flex;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 2rem;
 `
 
 const Logo = styled(GatsbyImage)``
