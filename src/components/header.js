@@ -7,13 +7,8 @@ import { HiMenuAlt4 } from "react-icons/hi"
 import { CgClose } from "react-icons/cg"
 import { menuData } from "../data/menuData"
 
-// Components:
-import SocialMenu from "./socialMenu"
-
 // Contentful data:
 import { useSiteDataQuery } from "../hooks/useSiteDataQuery"
-
-// TODO: restyle header to be only menu burger, open on click, close on click
 
 const Header = () => {
   const siteData = useSiteDataQuery()
@@ -82,6 +77,9 @@ const Header = () => {
         )}
         <Sidebar className={sidebar ? "mobile-menu active" : "mobile-menu"}>
           <LinkWrapper>
+            <TitleLink to="/">
+              <MobileMenuTitle>Things by Jordan</MobileMenuTitle>
+            </TitleLink>
             {sidebar ? (
               menuData.map((item, index) => (
                 <SideBarLink className="navlink" to={item.link} key={index}>
@@ -129,6 +127,19 @@ const SideBarLink = styled(Link)`
   padding: 1rem 1rem;
   cursor: pointer;
   font-family: "Green Fuz";
+`
+
+const MobileMenuTitle = styled.h1`
+  color: #fff;
+  font-family: "Green Fuz";
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  letter-spacing: 0.1rem;
+`
+const TitleLink = styled(Link)`
+  text-decoration: none;
 `
 
 const LinkWrapper = styled.div`
