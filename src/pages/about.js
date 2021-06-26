@@ -15,8 +15,9 @@ const AboutPage = () => {
   return (
     <Layout>
       <About
+        heading="About me"
         textContent={authorData.about.childMarkdownRemark.html}
-        title={"A full stack developer with a difficult to say last name"}
+        title={"I'm full stack developer with a difficult to say last name"}
       />
       <Wrapper>
         <Technologies />

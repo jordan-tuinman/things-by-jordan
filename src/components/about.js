@@ -11,12 +11,12 @@ import Technologies from "./technologies"
 
 // TODO: pass in data from contentful as textContent to reuse component on about page and index
 
-const About = ({ textContent, title, technologies, button }) => {
+const About = ({ heading, textContent, title, technologies, button }) => {
   const authorData = useAuthorDataQuery()
 
   return (
     <AboutContainer>
-      <Description className="greenfuz">Hey - I'm Jordan</Description>
+      <Description className="greenfuz">{heading}</Description>
       <ContentWrapper>
         <ColumnOne>
           <AboutImage

@@ -18,6 +18,7 @@ const IndexPage = () => {
       <Seo title="Home" />
       <Hero />
       <About
+        heading="Hey - I'm Jordan"
         textContent={authorData.brief.childMarkdownRemark.html}
         title="Some things about me"
         technologies={true}
