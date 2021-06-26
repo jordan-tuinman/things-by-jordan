@@ -10,9 +10,8 @@ import { useAuthorDataQuery } from "../hooks/useAuthorDataQuery"
 import Technologies from "./technologies"
 
 // TODO: pass in data from contentful as textContent to reuse component on about page and index
-// TODO: image on hover from b&w to colour
 
-const About = ({ textContent }) => {
+const About = ({ textContent, title, technologies, button }) => {
   const authorData = useAuthorDataQuery()
 
   return (
@@ -27,7 +26,7 @@ const About = ({ textContent }) => {
         </ColumnOne>
         <ColumnTwo>
           <TextWrapper>
-            <h3>Some things about me</h3>
+            <h3>{title}</h3>
             <List
               dangerouslySetInnerHTML={{
                 __html: `${textContent}`,
@@ -35,13 +34,17 @@ const About = ({ textContent }) => {
             />
           </TextWrapper>
           <TextWrapper>
-            <Technologies />
+            {technologies ? <Technologies title="Technologies" /> : <></>}
           </TextWrapper>
-          <ButtonWrapper>
-            <Button primary="true" round="true" to="/about">
-              more about me
-            </Button>
-          </ButtonWrapper>
+          {button ? (
+            <ButtonWrapper>
+              <Button primary="true" round="true" to="/about">
+                more about me
+              </Button>
+            </ButtonWrapper>
+          ) : (
+            <></>
+          )}
         </ColumnTwo>
       </ContentWrapper>
     </AboutContainer>

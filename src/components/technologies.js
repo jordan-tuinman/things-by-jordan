@@ -13,10 +13,10 @@ import {
   SiJest,
 } from "react-icons/si"
 
-const Technologies = () => {
+const Technologies = ({ title }) => {
   return (
     <Container>
-      <Heading>Technologies</Heading>
+      <Heading>{title}</Heading>
       <Wrapper>
         <HtmlIcon className="tech" href="https://html.spec.whatwg.org/">
           <SiHtml5 />

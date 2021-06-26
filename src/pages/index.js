@@ -17,7 +17,12 @@ const IndexPage = () => {
     <Layout>
       <Seo title="Home" />
       <Hero />
-      <About textContent={authorData.brief.childMarkdownRemark.html} />
+      <About
+        textContent={authorData.brief.childMarkdownRemark.html}
+        title="Some things about me"
+        technologies={true}
+        button={true}
+      />
       <Work heading="Recent Work Things" />
     </Layout>
   )

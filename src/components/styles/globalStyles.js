@@ -8,6 +8,11 @@ export const GlobalStyle = createGlobalStyle`
   src: local('Green Fuz'), url(../../fonts/green-fuz.ttf) format('truetype');
 }
 
+body {
+  background-color: #0c0c0c ;
+
+}
+
 * {
   font-family: 'Roboto Condensed', sans-serif;
   margin: 0;
