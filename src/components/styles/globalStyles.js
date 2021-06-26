@@ -53,4 +53,6 @@ export const GlobalStyle = createGlobalStyle`
   transform: translateY(-4px);
   cursor: pointer;
 }
+
+
 `

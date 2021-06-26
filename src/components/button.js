@@ -17,6 +17,7 @@ const Button = styled(Link)`
   border: 1px solid #1a1a1a;
   border-radius: ${({ round }) => (round ? "5px" : "none")};
   text-decoration: none;
+  transition: 0.3s !important;
 
   &:hover {
     background: ${({ primary }) => (primary ? "#fcfcfc" : "transparent")};

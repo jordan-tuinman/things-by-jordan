@@ -17,7 +17,7 @@ const About = ({ textContent }) => {
 
   return (
     <AboutContainer>
-      <Description className="greenfuz">some things about me</Description>
+      <Description className="greenfuz">Hey - I'm Jordan</Description>
       <ContentWrapper>
         <ColumnOne>
           <AboutImage
@@ -27,13 +27,13 @@ const About = ({ textContent }) => {
         </ColumnOne>
         <ColumnTwo>
           <TextWrapper>
-            <h3>Hey, I'm Jordan!</h3>
+            <h3>Some things about me</h3>
+            <List
+              dangerouslySetInnerHTML={{
+                __html: `${textContent}`,
+              }}
+            />
           </TextWrapper>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `${textContent}`,
-            }}
-          />
           <TextWrapper>
             <Technologies />
           </TextWrapper>
@@ -95,11 +95,17 @@ const ColumnTwo = styled.div`
   grid-template-columns: 1fr;
 `
 
+const List = styled.div`
+  line-height: 2;
+  font-weight: bold;
+  padding-left: 1rem;
+`
+
 const TextWrapper = styled.div`
   padding: 1rem 1rem;
 
   h3 {
-    margin-botom: 1rem;
+    padding-bottom: 1rem;
     font-size: 1.5rem;
     color: #1a1a1a;
   }

@@ -16,7 +16,7 @@ import {
 const Technologies = () => {
   return (
     <Container>
-      <Heading>Technologies:</Heading>
+      <Heading>Technologies</Heading>
       <Wrapper>
         <HtmlIcon className="tech" href="https://html.spec.whatwg.org/">
           <SiHtml5 />
@@ -53,9 +53,7 @@ const Technologies = () => {
 export default Technologies
 
 const Container = styled.div`
-  padding: 3rem 0;
   background: #fcfcfc;
-  color: #1a1a1a;
 `
 
 const Wrapper = styled.div`
@@ -66,7 +64,7 @@ const Wrapper = styled.div`
 
 const Heading = styled.p`
   margin-bottom: 1.5rem;
-  color: #3b3b3b;
+  font-weight: bold;
 `
 
 const HtmlIcon = styled.a`
