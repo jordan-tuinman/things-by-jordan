@@ -17,10 +17,11 @@ const AboutPage = () => {
       <About
         heading="About me"
         textContent={authorData.about.childMarkdownRemark.html}
-        title={"I'm full stack developer with a difficult to say last name"}
       />
       <Wrapper>
-        <Technologies />
+        <InnerWrapper>
+          <Technologies />
+        </InnerWrapper>
       </Wrapper>
     </Layout>
   )
@@ -29,6 +30,20 @@ const AboutPage = () => {
 export default AboutPage
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   background: #fcfcfc;
-  padding: 1rem 4rem;
+  padding-bottom: 1rem;
+`
+
+const InnerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  justify-content: center;
+  background: #fcfcfc;
+  padding: 1rem 0;
 `

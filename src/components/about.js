@@ -26,7 +26,7 @@ const About = ({ heading, textContent, title, technologies, button }) => {
         </ColumnOne>
         <ColumnTwo>
           <TextWrapper>
-            <h3>{title}</h3>
+            <h2>{title}</h2>
             <List
               dangerouslySetInnerHTML={{
                 __html: `${textContent}`,
@@ -90,7 +90,7 @@ const ColumnOne = styled.div`
 `
 
 const AboutImage = styled(GatsbyImage)`
-  height: 60vh;
+  height: 100%;
 `
 
 const ColumnTwo = styled.div`
@@ -99,9 +99,16 @@ const ColumnTwo = styled.div`
 `
 
 const List = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   line-height: 2;
-  font-weight: bold;
+  padding-top: 1.5rem;
   padding-left: 1rem;
+
+  a {
+    color: inherit;
+  }
 `
 
 const TextWrapper = styled.div`

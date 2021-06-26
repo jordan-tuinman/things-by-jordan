@@ -38,7 +38,7 @@ const Header = () => {
       <Nav className={navbar ? "navbar active" : "navbar"}>
         <NavLink to="/">
           <Logo
-            className={bool ? "logo active" : "logo"}
+            className={navbar || bool ? "logo active" : "logo"}
             image={siteData.siteLogo.gatsbyImageData}
             alt={siteData.siteLogo.title}
           />
