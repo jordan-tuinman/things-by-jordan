@@ -71,14 +71,17 @@ const Header = () => {
         }}
       >
         {sidebar ? (
-          <BurgerMenuClose />
+          <BurgerMenuClose className={navbar ? "mobile-menu-icons" : ""} />
         ) : (
           <BurgerMenu className={navbar ? "mobile-menu-icons" : ""} />
         )}
         <Sidebar className={sidebar ? "mobile-menu active" : "mobile-menu"}>
           <LinkWrapper>
             <TitleLink to="/">
-              <MobileMenuTitle>Things by Jordan</MobileMenuTitle>
+              <MobileMenuLogo
+                image={siteData.siteLogo.gatsbyImageData}
+                alt={siteData.siteLogo.title}
+              />
             </TitleLink>
             {sidebar ? (
               menuData.map((item, index) => (
@@ -129,15 +132,8 @@ const SideBarLink = styled(Link)`
   font-family: "Green Fuz";
 `
 
-const MobileMenuTitle = styled.h1`
-  color: #fff;
-  font-family: "Green Fuz";
-  font-size: 2rem;
-  text-align: center;
-  padding-top: 2rem;
-  padding-bottom: 3rem;
-  letter-spacing: 0.1rem;
-`
+const MobileMenuLogo = styled(GatsbyImage)``
+
 const TitleLink = styled(Link)`
   text-decoration: none;
 `
