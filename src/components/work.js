@@ -57,11 +57,10 @@ const WorkContainer = styled.div`
 `
 
 const WorkHeading = styled.p`
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.5rem, 5vw, 3rem);
   font-weight: bold;
   text-align: center;
   margin-bottom: 3rem;
-  color: #000;
 
   @media screen and (max-width: 400px) {
     margin-bottom: 2rem;

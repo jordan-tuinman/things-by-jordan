@@ -3,6 +3,11 @@ import { createGlobalStyle } from "styled-components"
 // TODO: add green fuz
 
 export const GlobalStyle = createGlobalStyle`
+@font-face {
+  font-family: 'Green Fuz';
+  src: local('Green Fuz'), url(../fonts/green-fuz.ttf) format('truetype');
+}
+
 * {
   font-family: 'Roboto Condensed', sans-serif;
   margin: 0;

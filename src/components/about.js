@@ -57,11 +57,11 @@ const AboutContainer = styled.div`
   padding: 3rem calc((100vw - 1300px) / 2);
 `
 
-const Description = styled.p`
+const Description = styled.h2`
   text-align: start;
   text-align: center;
   margin-bottom: 2rem;
-  font-size: clamp(1.5rem, 5vw, 2rem);
+  font-size: clamp(1.5rem, 5vw, 3rem);
   font-weight: bold;
 `
 
