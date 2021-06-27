@@ -13,7 +13,9 @@ export const useWorkDataQuery = () => {
             projectBrief
             projectDate(formatString: "MM/yyyy")
             projectDescription {
-              projectDescription
+              childMarkdownRemark {
+                html
+              }
             }
             projectImages {
               description
