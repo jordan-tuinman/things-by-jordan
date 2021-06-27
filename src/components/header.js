@@ -7,6 +7,9 @@ import { HiMenuAlt4 } from "react-icons/hi"
 import { CgClose } from "react-icons/cg"
 import { menuData } from "../data/menuData"
 
+// Components:
+import SocialMenu from "./socialMenu"
+
 // Contentful data:
 import { useSiteDataQuery } from "../hooks/useSiteDataQuery"
 
@@ -55,6 +58,7 @@ const Header = () => {
               <></>
             )}
           </NavMenu>
+          {bool ? <SocialMenu /> : <></>}
           <NavMenu
             onClick={() => {
               toggle()
