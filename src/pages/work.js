@@ -15,6 +15,7 @@ import { useWorkDataQuery } from "../hooks/useWorkDataQuery"
 
 const WorkPage = ({ location }) => {
   const workData = useWorkDataQuery()
+  const [mobilePid, setMobilePid] = useState(0)
   const [projectId, setProjectId] = useState(
     !isNaN(`${location.state.projectIndex}`)
       ? `${location.state.projectIndex}`
@@ -23,8 +24,10 @@ const WorkPage = ({ location }) => {
 
   function displayInfo(num) {
     setProjectId(num)
+    setMobilePid(num)
   }
 
+  console.log(projectId)
   return (
     <Layout>
       <WorkContainer>
@@ -106,19 +109,19 @@ const WorkPage = ({ location }) => {
                   </TextWrap>
                 </ProjectCard>
               </ProjectRow>
-              {projectId === index ? (
+              {mobilePid === index ? (
                 <InfoWrap>
-                  <h2>{workData[projectId].node.nameOfProject}</h2>
-                  {workData[projectId].node.projectLink ? (
-                    <a href={workData[projectId].node.projectLink}>
+                  <h2>{workData[mobilePid].node.nameOfProject}</h2>
+                  {workData[mobilePid].node.projectLink ? (
+                    <a href={workData[mobilePid].node.projectLink}>
                       <FaExternalLinkSquareAlt />
-                      <p>{workData[projectId].node.nameOfProject}</p>
+                      <p>{workData[mobilePid].node.nameOfProject}</p>
                     </a>
                   ) : (
                     <></>
                   )}
-                  {workData[projectId].node.gitHubLink ? (
-                    <a href={workData[projectId].node.gitHubLink}>
+                  {workData[mobilePid].node.gitHubLink ? (
+                    <a href={workData[mobilePid].node.gitHubLink}>
                       <FaGithub />
                       <p>GitHub repo</p>
                     </a>
@@ -128,17 +131,17 @@ const WorkPage = ({ location }) => {
 
                   <Text
                     dangerouslySetInnerHTML={{
-                      __html: `${workData[projectId].node.projectDescription.childMarkdownRemark.html}`,
+                      __html: `${workData[mobilePid].node.projectDescription.childMarkdownRemark.html}`,
                     }}
                   />
                   <ImagesWrapper>
-                    {workData[projectId].node.projectImages.map((item, i) => (
+                    {workData[mobilePid].node.projectImages.map((item, i) => (
                       <ProjectImage
                         image={
-                          workData[projectId].node.projectImages[i]
+                          workData[mobilePid].node.projectImages[i]
                             .gatsbyImageData
                         }
-                        alt={workData[projectId].node.projectImages[i].title}
+                        alt={workData[mobilePid].node.projectImages[i].title}
                       />
                     ))}
                   </ImagesWrapper>
@@ -160,12 +163,13 @@ const WorkContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100%;
   width: 100%;
   background: #fcfcfc;
   color: #000;
   padding: 3rem calc((100vw - 1300px) / 2);
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1050px) {
     display: none;
   }
 `
@@ -173,7 +177,7 @@ const WorkContainer = styled.div`
 const MobileContainer = styled.div`
   display: none;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1050px) {
     background: #fcfcfc;
     color: #000;
     padding: 3rem calc((100vw - 1300px) / 2);
