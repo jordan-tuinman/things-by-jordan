@@ -4,8 +4,6 @@ import styled from "styled-components"
 // Components:
 import SocialMenu from "./socialMenu"
 
-// TODO: needs better styling
-
 const Footer = () => {
   return (
     <FooterContainer>

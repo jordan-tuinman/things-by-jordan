@@ -32,7 +32,6 @@ const ArtPage = () => {
         <ImagesWrapper>
           {artData.map((item, index) => (
             <ArtCard key={index}>
-              {/* TODO: add art details like with project card */}
               <ArtImage
                 image={item.node.image.gatsbyImageData}
                 alt={item.node.title}

@@ -13,8 +13,6 @@ import Button from "./button"
 import { useAuthorDataQuery } from "../hooks/useAuthorDataQuery"
 import Technologies from "./technologies"
 
-// TODO: pass in data from contentful as textContent to reuse component on about page and index
-
 const About = ({
   heading,
   textContent,

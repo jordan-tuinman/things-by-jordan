@@ -5,8 +5,6 @@ import styled from "styled-components"
 import { MdEmail } from "react-icons/md"
 import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa"
 
-// TODO: adjust icon size and colors
-
 const SocialMenu = () => {
   return (
     <Menu>

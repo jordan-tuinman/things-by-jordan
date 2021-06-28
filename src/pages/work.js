@@ -12,8 +12,6 @@ import WorkModal from "../components/workModal"
 // Contentful data:
 import { useWorkDataQuery } from "../hooks/useWorkDataQuery"
 
-// TODO: apply modal to images
-
 const WorkPage = ({ location }) => {
   const workData = useWorkDataQuery()
   const [content, setModalContent] = useState()
