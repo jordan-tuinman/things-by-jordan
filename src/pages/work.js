@@ -15,7 +15,7 @@ import { useWorkDataQuery } from "../hooks/useWorkDataQuery"
 
 const WorkPage = ({ location }) => {
   const workData = useWorkDataQuery()
-  const [mobilePid, setMobilePid] = useState(0)
+  // const [mobilePid, setMobilePid] = useState(0)
   const [projectId, setProjectId] = useState(
     !isNaN(`${location.state.projectIndex}`)
       ? `${location.state.projectIndex}`
@@ -24,10 +24,9 @@ const WorkPage = ({ location }) => {
 
   function displayInfo(num) {
     setProjectId(num)
-    setMobilePid(num)
+    // setMobilePid(num)
   }
 
-  console.log(projectId)
   return (
     <Layout>
       <WorkContainer>
@@ -109,19 +108,22 @@ const WorkPage = ({ location }) => {
                   </TextWrap>
                 </ProjectCard>
               </ProjectRow>
-              {mobilePid === index ? (
+              {/* TODO: Potential issue here - need to confirm on build version first before change. 
+              To resolve, switch projectId for another state variable eg create a mobileId 
+              state and set with the same num as projectId */}
+              {projectId === index ? (
                 <InfoWrap>
-                  <h2>{workData[mobilePid].node.nameOfProject}</h2>
-                  {workData[mobilePid].node.projectLink ? (
-                    <a href={workData[mobilePid].node.projectLink}>
+                  <h2>{workData[projectId].node.nameOfProject}</h2>
+                  {workData[projectId].node.projectLink ? (
+                    <a href={workData[projectId].node.projectLink}>
                       <FaExternalLinkSquareAlt />
-                      <p>{workData[mobilePid].node.nameOfProject}</p>
+                      <p>{workData[projectId].node.nameOfProject}</p>
                     </a>
                   ) : (
                     <></>
                   )}
-                  {workData[mobilePid].node.gitHubLink ? (
-                    <a href={workData[mobilePid].node.gitHubLink}>
+                  {workData[projectId].node.gitHubLink ? (
+                    <a href={workData[projectId].node.gitHubLink}>
                       <FaGithub />
                       <p>GitHub repo</p>
                     </a>
@@ -131,17 +133,17 @@ const WorkPage = ({ location }) => {
 
                   <Text
                     dangerouslySetInnerHTML={{
-                      __html: `${workData[mobilePid].node.projectDescription.childMarkdownRemark.html}`,
+                      __html: `${workData[projectId].node.projectDescription.childMarkdownRemark.html}`,
                     }}
                   />
                   <ImagesWrapper>
-                    {workData[mobilePid].node.projectImages.map((item, i) => (
+                    {workData[projectId].node.projectImages.map((item, i) => (
                       <ProjectImage
                         image={
-                          workData[mobilePid].node.projectImages[i]
+                          workData[projectId].node.projectImages[i]
                             .gatsbyImageData
                         }
-                        alt={workData[mobilePid].node.projectImages[i].title}
+                        alt={workData[projectId].node.projectImages[i].title}
                       />
                     ))}
                   </ImagesWrapper>
