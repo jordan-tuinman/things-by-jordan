@@ -187,9 +187,6 @@ const MobileContainer = styled.div`
     display: flex;
     flex-direction: column;
   }
-
-  @media screen and (max-width: 400px) {
-  }
 `
 
 const ContentWrapper = styled.div`
@@ -280,9 +277,30 @@ const TextWrap = styled.div`
 `
 
 const InfoWrap = styled.div`
+  display: flex;
+  flex-direction: column;
   background-color: #fcfcfc;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
   width: 100%;
+
+  a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #1a1a1a;
+    cursor: pointer;
+    transition: 0.3s !important;
+    padding-top: 0.5rem;
+  }
+
+  p {
+    padding: 0 0.5rem;
+  }
+
+  &:hover {
+    color: #000;
+    transform: translateY(-2px);
+  }
 `
 
 const TitleWrap = styled.div`
