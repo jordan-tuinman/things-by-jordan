@@ -2,6 +2,9 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 
+//  React Icons:
+import { FaGithub, FaExternalLinkSquareAlt } from "react-icons/fa"
+
 // Components:
 import Layout from "../components/layout"
 
@@ -10,11 +13,11 @@ import { useWorkDataQuery } from "../hooks/useWorkDataQuery"
 
 const WorkPage = () => {
   const workData = useWorkDataQuery()
-  const [projectInfo, setProjectInfo] = useState(0)
+  const [projectId, setProjectId] = useState(0)
 
   function displayInfo(num) {
     console.log(num)
-    setProjectInfo(num)
+    setProjectId(num)
   }
 
   return (
@@ -24,14 +27,13 @@ const WorkPage = () => {
         <ContentWrapper>
           <ColumnOne>
             {workData.map((item, index) => (
-              <ProjectRow>
+              <ProjectRow key={item.node.contentfulid}>
                 <ProjectCard
-                  key={item.node.contentfulid}
                   onClick={() => {
                     displayInfo(index)
                   }}
                 >
-                  <ProjectImage
+                  <ThumbnailImage
                     image={item.node.projectImages[0].gatsbyImageData}
                     alt={item.node.projectImages[0].title}
                   />
@@ -49,11 +51,39 @@ const WorkPage = () => {
             ))}
           </ColumnOne>
           <ColumnTwo>
+            <h2>{workData[projectId].node.nameOfProject}</h2>
+            {workData[projectId].node.projectLink ? (
+              <a href={workData[projectId].node.projectLink}>
+                <FaExternalLinkSquareAlt />
+                <p>{workData[projectId].node.nameOfProject}</p>
+              </a>
+            ) : (
+              <></>
+            )}
+            {workData[projectId].node.gitHubLink ? (
+              <a href={workData[projectId].node.gitHubLink}>
+                <FaGithub />
+                <p>GitHub repo</p>
+              </a>
+            ) : (
+              <></>
+            )}
+
             <Text
               dangerouslySetInnerHTML={{
-                __html: `${workData[projectInfo].node.projectDescription.childMarkdownRemark.html}`,
+                __html: `${workData[projectId].node.projectDescription.childMarkdownRemark.html}`,
               }}
             />
+            <ImagesWrapper>
+              {workData[projectId].node.projectImages.map((item, i) => (
+                <ProjectImage
+                  image={
+                    workData[projectId].node.projectImages[i].gatsbyImageData
+                  }
+                  alt={workData[projectId].node.projectImages[i].title}
+                />
+              ))}
+            </ImagesWrapper>
           </ColumnTwo>
         </ContentWrapper>
       </WorkContainer>
@@ -75,7 +105,7 @@ const WorkContainer = styled.div`
 
 const ContentWrapper = styled.div`
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 20% 80%;
   grid-gap: 15px;
   padding: 0 4rem;
 
@@ -89,8 +119,9 @@ const ContentWrapper = styled.div`
 `
 
 const ColumnOne = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   padding-top: 1rem;
 `
 
@@ -101,10 +132,33 @@ const ProjectRow = styled.div`
 `
 
 const ColumnTwo = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 1rem 1rem;
+
+  h2 {
+    padding-bottom: 1rem;
+  }
+
+  a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #1a1a1a;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s !important;
+
+    p {
+      padding-left: 1rem;
+    }
+
+    &:hover {
+      color: #000;
+      transform: translateY(-2px);
+    }
+  }
 `
 
 const WorkHeading = styled.p`
@@ -120,13 +174,13 @@ const WorkHeading = styled.p`
 
 const ProjectCard = styled.div`
   line-height: 1.5;
-  height: 250px;
+  height: 200px;
   position: relative;
   transition: 0.2s ease;
   background: #fcfcfc;
 `
 
-const ProjectImage = styled(GatsbyImage)`
+const ThumbnailImage = styled(GatsbyImage)`
   height: 100%;
   max-width: 100%;
   filter: brightness(70%);
@@ -139,7 +193,7 @@ const ProjectImage = styled(GatsbyImage)`
 
 const ProjectInfo = styled.div`
   position: absolute;
-  top: 190px;
+  top: 140px;
   width: 100%;
   background: linear-gradient(
     180deg,
@@ -201,3 +255,33 @@ const Text = styled.div`
     color: inherit;
   }
 `
+
+const ImagesWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2rem 0;
+`
+
+const ProjectImage = styled(GatsbyImage)`
+  width: 20%;
+  filter: brightness(60%);
+  transition: 0.3s !important;
+
+  &:hover {
+    transform: translateY(-2px);
+    filter: brightness(100%);
+  }
+`
+
+// const LinkIcon = styled(FaExternalLinkSquareAlt)`
+//   color: inherit;
+//   align-items: center;
+//   padding-right: 1rem;
+// `
+
+// const GitHub = styled(FaGithub)`
+//   color: inherit;
+//   align-items: center;
+//   padding-right: 1rem;
+// `

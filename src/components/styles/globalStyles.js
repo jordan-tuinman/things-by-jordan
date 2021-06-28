@@ -55,7 +55,7 @@ body {
 
 .navlink:active {
   color: #fff;
-  text-decoration: underline;
+  
 }
 
 .tech:hover {

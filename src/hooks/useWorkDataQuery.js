@@ -23,6 +23,7 @@ export const useWorkDataQuery = () => {
               title
             }
             projectLink
+            gitHubLink
           }
         }
       }
