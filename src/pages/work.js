@@ -11,12 +11,13 @@ import Layout from "../components/layout"
 // Contentful data:
 import { useWorkDataQuery } from "../hooks/useWorkDataQuery"
 
+// TODO: apply modal to images
+
 const WorkPage = () => {
   const workData = useWorkDataQuery()
   const [projectId, setProjectId] = useState(0)
 
   function displayInfo(num) {
-    console.log(num)
     setProjectId(num)
   }
 
@@ -230,7 +231,6 @@ const ColumnTwo = styled.div`
     flex-direction: row;
     align-items: center;
     color: #1a1a1a;
-    text-decoration: none;
     cursor: pointer;
     transition: 0.3s !important;
 

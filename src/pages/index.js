@@ -9,6 +9,7 @@ import Work from "../components/work"
 
 // Contentful data:
 import { useAuthorDataQuery } from "../hooks/useAuthorDataQuery"
+import Contact from "../components/contact"
 
 const IndexPage = () => {
   const authorData = useAuthorDataQuery()
@@ -25,6 +26,7 @@ const IndexPage = () => {
         button={true}
       />
       <Work heading="Recent Work Things" />
+      <Contact />
     </Layout>
   )
 }

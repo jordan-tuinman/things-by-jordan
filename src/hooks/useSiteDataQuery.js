@@ -6,6 +6,11 @@ export const useSiteDataQuery = () => {
       allContentfulSiteData {
         edges {
           node {
+            contactText {
+              childMarkdownRemark {
+                html
+              }
+            }
             alternateLandingImage {
               gatsbyImageData
               id

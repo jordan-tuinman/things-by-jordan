@@ -46,6 +46,7 @@ const FooterDesc = styled.div`
     margin-bottom: 1rem;
     font-family: "Green Fuz";
     letter-spacing: 0.1rem;
+    font-size: 1.5rem;
   }
 
   @media screen and (max-width: 400px) {

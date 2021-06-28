@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 
-// TODO: add green fuz
+// TODO: confirm green fuz added properly
 
 export const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 
 body {
   background-color: #0c0c0c ;
+  min-height: 100%;
 
 }
 
@@ -23,7 +24,7 @@ body {
 .greenfuz {
   font-family: 'Green Fuz';
   color: #1A1A1A;
-  letter-spacing: .1rem;
+  letter-spacing: .2rem;
 }
 
 .navbar.active {
