@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 body {
   background-color: #0c0c0c ;
   position: relative;
-  min-height: 100%;
+  min-height: 100vh;
   padding-bottom: 200px;
 }
 

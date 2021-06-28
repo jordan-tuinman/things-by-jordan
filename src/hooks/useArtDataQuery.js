@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 export const useArtDataQuery = () => {
   const artDataQuery = useStaticQuery(graphql`
     query ArtDataQuery {
-      allContentfulArt {
+      allContentfulArt(sort: { fields: contentfulid, order: DESC }) {
         edges {
           node {
             contentfulid
