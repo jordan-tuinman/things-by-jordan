@@ -15,8 +15,8 @@ const Work = ({ heading }) => {
       <WorkHeading className="greenfuz">{heading}</WorkHeading>
       <WorkWrapper>
         {recentWork.map((item, index) => (
-          <Link to="/work" state={{ projectIndex: index }}>
-            <ProjectCard key={index}>
+          <Link key={index} to="/work" state={{ projectIndex: index }}>
+            <ProjectCard>
               <ProjectImage
                 image={item.node.projectImages[0].gatsbyImageData}
                 alt={item.node.projectImages[0].title}

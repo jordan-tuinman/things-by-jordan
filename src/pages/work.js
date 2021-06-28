@@ -86,6 +86,7 @@ const WorkPage = ({ location }) => {
             <ImagesWrapper>
               {workData[projectId].node.projectImages.map((item, i) => (
                 <ProjectImage
+                  key={i}
                   image={
                     workData[projectId].node.projectImages[i].gatsbyImageData
                   }
@@ -103,7 +104,7 @@ const WorkPage = ({ location }) => {
         <WorkHeading className="greenfuz">Work Things</WorkHeading>
         <ColumnOne>
           {workData.map((item, index) => (
-            <>
+            <Wrapper key={index}>
               <ProjectRow key={item.node.contentfulid}>
                 <ProjectCard
                   onClick={() => {
@@ -150,6 +151,7 @@ const WorkPage = ({ location }) => {
                   <ImagesWrapper>
                     {workData[projectId].node.projectImages.map((item, i) => (
                       <ProjectImage
+                        key={i}
                         image={
                           workData[projectId].node.projectImages[i]
                             .gatsbyImageData
@@ -165,7 +167,7 @@ const WorkPage = ({ location }) => {
               ) : (
                 <></>
               )}
-            </>
+            </Wrapper>
           ))}
         </ColumnOne>
       </MobileContainer>
@@ -215,11 +217,16 @@ const ContentWrapper = styled.div`
   }
 `
 
+const Wrapper = styled.div`
+  width: 100%;
+`
+
 const ColumnOne = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 1rem 1rem;
+  width: 100%;
 `
 
 const ProjectRow = styled.div`
