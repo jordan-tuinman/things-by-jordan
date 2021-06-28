@@ -11,6 +11,7 @@ import {
   SiGatsby,
   SiNodeDotJs,
   SiJest,
+  SiWordpress,
 } from "react-icons/si"
 
 const Technologies = ({ title }) => {
@@ -30,6 +31,9 @@ const Technologies = ({ title }) => {
         <JsIcon className="tech" href="https://www.javascript.com/">
           <SiJavascript />
         </JsIcon>
+        <WordpressIcon className="tech" href="https://wordpress.com/">
+          <SiWordpress />
+        </WordpressIcon>
         <ReactIcon className="tech" href="https://reactjs.org/">
           <SiReact />
         </ReactIcon>
@@ -65,6 +69,15 @@ const Wrapper = styled.div`
 const Heading = styled.p`
   margin-bottom: 1.5rem;
   font-weight: bold;
+`
+
+const WordpressIcon = styled.a`
+  filter: grayscale(50%);
+  color: #21759b;
+
+  &:hover {
+    filter: none;
+  }
 `
 
 const HtmlIcon = styled.a`
