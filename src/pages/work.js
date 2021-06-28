@@ -33,19 +33,13 @@ const WorkPage = () => {
                     displayInfo(index)
                   }}
                 >
-                  <ThumbnailImage
-                    image={item.node.projectImages[0].gatsbyImageData}
-                    alt={item.node.projectImages[0].title}
-                  />
-                  <ProjectInfo>
-                    <TextWrap>
-                      <TitleWrap>
-                        <ProjectTitle>{item.node.nameOfProject}</ProjectTitle>
-                        <ProjectDate>{item.node.projectDate}</ProjectDate>
-                      </TitleWrap>
-                      <ProjectBrief>{item.node.projectBrief}</ProjectBrief>
-                    </TextWrap>
-                  </ProjectInfo>
+                  <TextWrap>
+                    <TitleWrap>
+                      <ProjectTitle>{item.node.nameOfProject}</ProjectTitle>
+                      <ProjectDate>{item.node.projectDate}</ProjectDate>
+                    </TitleWrap>
+                    <ProjectBrief>{item.node.projectBrief}</ProjectBrief>
+                  </TextWrap>
                 </ProjectCard>
               </ProjectRow>
             ))}
@@ -87,6 +81,70 @@ const WorkPage = () => {
           </ColumnTwo>
         </ContentWrapper>
       </WorkContainer>
+      <MobileContainer>
+        <WorkHeading className="greenfuz">Work Things</WorkHeading>
+        <ColumnOne>
+          {workData.map((item, index) => (
+            <>
+              <ProjectRow key={item.node.contentfulid}>
+                <ProjectCard
+                  onClick={() => {
+                    displayInfo(index)
+                  }}
+                >
+                  <TextWrap>
+                    <TitleWrap>
+                      <ProjectTitle>{item.node.nameOfProject}</ProjectTitle>
+                      <ProjectDate>{item.node.projectDate}</ProjectDate>
+                    </TitleWrap>
+                    <ProjectBrief>{item.node.projectBrief}</ProjectBrief>
+                  </TextWrap>
+                </ProjectCard>
+              </ProjectRow>
+              {projectId === index ? (
+                <InfoWrap>
+                  <h2>{workData[projectId].node.nameOfProject}</h2>
+                  {workData[projectId].node.projectLink ? (
+                    <a href={workData[projectId].node.projectLink}>
+                      <FaExternalLinkSquareAlt />
+                      <p>{workData[projectId].node.nameOfProject}</p>
+                    </a>
+                  ) : (
+                    <></>
+                  )}
+                  {workData[projectId].node.gitHubLink ? (
+                    <a href={workData[projectId].node.gitHubLink}>
+                      <FaGithub />
+                      <p>GitHub repo</p>
+                    </a>
+                  ) : (
+                    <></>
+                  )}
+
+                  <Text
+                    dangerouslySetInnerHTML={{
+                      __html: `${workData[projectId].node.projectDescription.childMarkdownRemark.html}`,
+                    }}
+                  />
+                  <ImagesWrapper>
+                    {workData[projectId].node.projectImages.map((item, i) => (
+                      <ProjectImage
+                        image={
+                          workData[projectId].node.projectImages[i]
+                            .gatsbyImageData
+                        }
+                        alt={workData[projectId].node.projectImages[i].title}
+                      />
+                    ))}
+                  </ImagesWrapper>
+                </InfoWrap>
+              ) : (
+                <></>
+              )}
+            </>
+          ))}
+        </ColumnOne>
+      </MobileContainer>
     </Layout>
   )
 }
@@ -101,6 +159,26 @@ const WorkContainer = styled.div`
   background: #fcfcfc;
   color: #000;
   padding: 3rem calc((100vw - 1300px) / 2);
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`
+
+const MobileContainer = styled.div`
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    background: #fcfcfc;
+    color: #000;
+    padding: 3rem calc((100vw - 1300px) / 2);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 400px) {
+  }
 `
 
 const ContentWrapper = styled.div`
@@ -109,12 +187,8 @@ const ContentWrapper = styled.div`
   grid-gap: 15px;
   padding: 0 4rem;
 
-  @media screen and (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
-
-  @media screen and (max-width: 400px) {
-    padding: 0 2rem;
+  @media screen and (max-width: 1050px) {
+    grid-template-columns: 25% 75%;
   }
 `
 
@@ -122,13 +196,23 @@ const ColumnOne = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: 1rem;
+  padding: 1rem 1rem;
 `
 
 const ProjectRow = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  width: 100%;
+  padding: 0.1rem 0;
+  color: #e6e6e6;
+  transition: 0.3s !important;
+
+  &:hover {
+    transform: translateX(4px);
+    cursor: pointer;
+    color: #fff;
+  }
 `
 
 const ColumnTwo = styled.div`
@@ -165,64 +249,35 @@ const WorkHeading = styled.p`
   font-size: clamp(1.5rem, 5vw, 3rem);
   font-weight: bold;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 
   @media screen and (max-width: 400px) {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 `
 
 const ProjectCard = styled.div`
+  width: 100%;
   line-height: 1.5;
-  height: 200px;
-  position: relative;
   transition: 0.2s ease;
   background: #fcfcfc;
 `
 
-const ThumbnailImage = styled(GatsbyImage)`
-  height: 100%;
-  max-width: 100%;
-  filter: brightness(70%);
-  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-
-  &:hover {
-    filter: brightness(100%);
-  }
-`
-
-const ProjectInfo = styled.div`
-  position: absolute;
-  top: 140px;
-  width: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.8) 100%
-  );
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.5rem 1rem;
-
-  @media screen and (max-width: 280px) {
-    padding: 0 1rem;
-  }
-
-  &:hover {
-    cursor: pointer;
-  }
-`
-
 const TextWrap = styled.div`
+  background-color: #1a1a1a;
+  padding: 0.5rem 1rem;
   width: 100%;
-  height: 100%;
+`
+
+const InfoWrap = styled.div`
+  background-color: #fcfcfc;
+  padding: 0.5rem 1rem;
+  width: 100%;
 `
 
 const TitleWrap = styled.div`
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
   width: 100%;
 `
@@ -231,6 +286,7 @@ const ProjectTitle = styled.p`
   display: block;
   font-weight: bold;
   font-size: 1rem;
+  padding-bottom: 0.5rem;
 `
 const ProjectDate = styled.p`
   display: block;
@@ -264,7 +320,7 @@ const ImagesWrapper = styled.div`
 `
 
 const ProjectImage = styled(GatsbyImage)`
-  width: 20%;
+  width: 24%;
   filter: brightness(60%);
   transition: 0.3s !important;
 
@@ -273,15 +329,3 @@ const ProjectImage = styled(GatsbyImage)`
     filter: brightness(100%);
   }
 `
-
-// const LinkIcon = styled(FaExternalLinkSquareAlt)`
-//   color: inherit;
-//   align-items: center;
-//   padding-right: 1rem;
-// `
-
-// const GitHub = styled(FaGithub)`
-//   color: inherit;
-//   align-items: center;
-//   padding-right: 1rem;
-// `

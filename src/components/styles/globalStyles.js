@@ -51,6 +51,7 @@ body {
 
 .navlink:hover {
   color: #fff;
+  text-decoration: underline;
 }
 
 .navlink:active {
