@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 
+// React icons;
 import { HiMenuAlt4 } from "react-icons/hi"
 import { CgClose } from "react-icons/cg"
 import { menuData } from "../data/menuData"

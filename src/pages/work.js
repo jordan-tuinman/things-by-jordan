@@ -7,6 +7,7 @@ import { FaGithub, FaExternalLinkSquareAlt } from "react-icons/fa"
 
 // Components:
 import Layout from "../components/layout"
+import Modal from "../components/modal"
 
 // Contentful data:
 import { useWorkDataQuery } from "../hooks/useWorkDataQuery"
@@ -15,6 +16,7 @@ import { useWorkDataQuery } from "../hooks/useWorkDataQuery"
 
 const WorkPage = ({ location }) => {
   const workData = useWorkDataQuery()
+  const [content, setModalContent] = useState()
   // const [mobilePid, setMobilePid] = useState(0)
   const [projectId, setProjectId] = useState(
     !isNaN(`${location.state.projectIndex}`)
@@ -25,6 +27,12 @@ const WorkPage = ({ location }) => {
   function displayInfo(num) {
     setProjectId(num)
     // setMobilePid(num)
+  }
+
+  function openModal(content) {
+    const modal = document.getElementById("myModal")
+    modal.style.display = "block"
+    setModalContent(content)
   }
 
   return (
@@ -82,6 +90,9 @@ const WorkPage = ({ location }) => {
                     workData[projectId].node.projectImages[i].gatsbyImageData
                   }
                   alt={workData[projectId].node.projectImages[i].title}
+                  onClick={() => {
+                    openModal(workData[projectId].node.projectImages[i])
+                  }}
                 />
               ))}
             </ImagesWrapper>
@@ -144,6 +155,9 @@ const WorkPage = ({ location }) => {
                             .gatsbyImageData
                         }
                         alt={workData[projectId].node.projectImages[i].title}
+                        onClick={() => {
+                          openModal(workData[projectId].node.projectImages[i])
+                        }}
                       />
                     ))}
                   </ImagesWrapper>
@@ -155,6 +169,7 @@ const WorkPage = ({ location }) => {
           ))}
         </ColumnOne>
       </MobileContainer>
+      <Modal modalContent={content} />
     </Layout>
   )
 }
@@ -253,7 +268,7 @@ const ColumnTwo = styled.div`
 `
 
 const WorkHeading = styled.p`
-  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: bold;
   text-align: center;
   margin-bottom: 2rem;

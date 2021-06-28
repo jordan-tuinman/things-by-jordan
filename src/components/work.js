@@ -57,7 +57,7 @@ const WorkContainer = styled.div`
 `
 
 const WorkHeading = styled.p`
-  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: bold;
   text-align: center;
   margin-bottom: 3rem;
