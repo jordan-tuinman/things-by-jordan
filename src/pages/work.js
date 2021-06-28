@@ -17,7 +17,6 @@ import { useWorkDataQuery } from "../hooks/useWorkDataQuery"
 const WorkPage = ({ location }) => {
   const workData = useWorkDataQuery()
   const [content, setModalContent] = useState()
-  // const [mobilePid, setMobilePid] = useState(0)
   const [projectId, setProjectId] = useState(
     !isNaN(`${location.state.projectIndex}`)
       ? `${location.state.projectIndex}`
@@ -26,7 +25,6 @@ const WorkPage = ({ location }) => {
 
   function displayInfo(num) {
     setProjectId(num)
-    // setMobilePid(num)
   }
 
   function openModal(content) {
@@ -120,9 +118,6 @@ const WorkPage = ({ location }) => {
                   </TextWrap>
                 </ProjectCard>
               </ProjectRow>
-              {/* TODO: Potential issue here - need to confirm on build version first before change. 
-              To resolve, switch projectId for another state variable eg create a mobileId 
-              state and set with the same num as projectId */}
               {projectId === index ? (
                 <InfoWrap>
                   <h2>{workData[projectId].node.nameOfProject}</h2>
