@@ -103,6 +103,7 @@ const ProjectImage = styled(GatsbyImage)`
 
   &:hover {
     filter: brightness(100%);
+    cursor: pointer;
   }
 `
 

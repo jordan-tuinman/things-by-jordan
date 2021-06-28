@@ -7,7 +7,7 @@ import { FaGithub, FaExternalLinkSquareAlt } from "react-icons/fa"
 
 // Components:
 import Layout from "../components/layout"
-import Modal from "../components/modal"
+import WorkModal from "../components/workModal"
 
 // Contentful data:
 import { useWorkDataQuery } from "../hooks/useWorkDataQuery"
@@ -169,7 +169,7 @@ const WorkPage = ({ location }) => {
           ))}
         </ColumnOne>
       </MobileContainer>
-      <Modal modalContent={content} />
+      <WorkModal modalContent={content} />
     </Layout>
   )
 }
@@ -370,5 +370,6 @@ const ProjectImage = styled(GatsbyImage)`
   &:hover {
     transform: translateY(-2px);
     filter: brightness(100%);
+    cursor: pointer;
   }
 `

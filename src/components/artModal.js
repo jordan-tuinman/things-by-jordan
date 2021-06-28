@@ -5,7 +5,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 // React icons:
 import { CgClose } from "react-icons/cg"
 
-const Modal = ({ modalContent }) => {
+const ArtModal = ({ modalContent }) => {
   function closeModal() {
     const modal = document.getElementById("myModal")
     modal.style.display = "none"
@@ -23,7 +23,7 @@ const Modal = ({ modalContent }) => {
         </CloseButton>
         {modalContent ? (
           <GatsbyImage
-            image={modalContent.gatsbyImageData}
+            image={modalContent.image.gatsbyImageData}
             alt={modalContent.title}
           />
         ) : (
@@ -34,7 +34,7 @@ const Modal = ({ modalContent }) => {
   )
 }
 
-export default Modal
+export default ArtModal
 
 const ModalContainer = styled.div`
   display: none;
@@ -57,7 +57,7 @@ const ModalContent = styled.div`
   justify-content: flex-start;
   margin: 10% auto;
   border: 1px solid #888;
-  width: 85%;
+  width: 80%;
 
   @media screen and (max-width: 1050px) {
     margin: 30% auto;
