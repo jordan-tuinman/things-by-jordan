@@ -13,9 +13,13 @@ import { useWorkDataQuery } from "../hooks/useWorkDataQuery"
 
 // TODO: apply modal to images
 
-const WorkPage = () => {
+const WorkPage = ({ location }) => {
   const workData = useWorkDataQuery()
-  const [projectId, setProjectId] = useState(0)
+  const [projectId, setProjectId] = useState(
+    !isNaN(`${location.state.projectIndex}`)
+      ? `${location.state.projectIndex}`
+      : 0
+  )
 
   function displayInfo(num) {
     setProjectId(num)

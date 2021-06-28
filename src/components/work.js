@@ -1,12 +1,10 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 // Contentful data:
 import { useWorkDataQuery } from "../hooks/useWorkDataQuery"
-
-// TODO: add dynamically created links to project cards
-// TODO: move pointer cursor to project info, and add links there
 
 const Work = ({ heading }) => {
   const workData = useWorkDataQuery()
@@ -17,21 +15,23 @@ const Work = ({ heading }) => {
       <WorkHeading className="greenfuz">{heading}</WorkHeading>
       <WorkWrapper>
         {recentWork.map((item, index) => (
-          <ProjectCard key={index}>
-            <ProjectImage
-              image={item.node.projectImages[0].gatsbyImageData}
-              alt={item.node.projectImages[0].title}
-            />
-            <ProjectInfo>
-              <TextWrap>
-                <TitleWrap>
-                  <ProjectTitle>{item.node.nameOfProject}</ProjectTitle>
-                  <ProjectDate>{item.node.projectDate}</ProjectDate>
-                </TitleWrap>
-                <ProjectBrief>{item.node.projectBrief}</ProjectBrief>
-              </TextWrap>
-            </ProjectInfo>
-          </ProjectCard>
+          <Link to="/work" state={{ projectIndex: index }}>
+            <ProjectCard key={index}>
+              <ProjectImage
+                image={item.node.projectImages[0].gatsbyImageData}
+                alt={item.node.projectImages[0].title}
+              />
+              <ProjectInfo>
+                <TextWrap>
+                  <TitleWrap>
+                    <ProjectTitle>{item.node.nameOfProject}</ProjectTitle>
+                    <ProjectDate>{item.node.projectDate}</ProjectDate>
+                  </TitleWrap>
+                  <ProjectBrief>{item.node.projectBrief}</ProjectBrief>
+                </TextWrap>
+              </ProjectInfo>
+            </ProjectCard>
+          </Link>
         ))}
       </WorkWrapper>
     </WorkContainer>
