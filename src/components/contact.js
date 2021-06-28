@@ -20,9 +20,9 @@ const Contact = () => {
           }}
         />
         <Text>
-          Also you can find my GitHub account linked here, where you can explore
-          through my repos and see examples of my code from way back when I
-          first started learning, and right up until the present day.
+          Also find my GitHub account linked here, where you can explore through
+          my repos and see examples of my code from way back when I first
+          started learning, and right up until the present day.
         </Text>
         <Wrapper>
           <SocialIcon target="_blank" href="https://github.com/jordan-tuinman">
@@ -76,7 +76,7 @@ const Description = styled.h2`
   text-align: start;
   text-align: center;
   padding-top: 1rem;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: bold;
 `

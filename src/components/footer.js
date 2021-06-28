@@ -32,9 +32,13 @@ const FooterContainer = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
-  padding: 3rem calc((100vw - 1100px) / 2);
+  padding: 2.5rem calc((100vw - 1100px) / 2);
   color: #fafafb;
   background: #000;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
 `
 
 const FooterWrapper = styled.div`
@@ -62,7 +66,7 @@ const FooterDesc = styled.div`
 const Socials = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 1rem;
+  padding-top: 0.5rem;
 `
 
 const Copyright = styled.p`
