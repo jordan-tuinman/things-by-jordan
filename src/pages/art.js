@@ -23,7 +23,7 @@ const ArtPage = () => {
   return (
     <Layout>
       <ArtContainer>
-        <Heading className="greenfuz">Art & Designs</Heading>
+        <Heading className="greenfuz">Arty Things</Heading>
         <Text>
           This is just a space for me to share some of my drawings, art, and
           other designs. Mostly I just like to draw for fun, mucking about with

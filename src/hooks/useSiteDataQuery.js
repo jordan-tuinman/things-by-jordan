@@ -35,6 +35,12 @@ export const useSiteDataQuery = () => {
               description
               title
             }
+            pageNotFoundImage {
+              gatsbyImageData
+              id
+              description
+              title
+            }
             siteTag
             siteTitle
           }
