@@ -14,6 +14,8 @@ import SocialMenu from "./socialMenu"
 // Contentful data:
 import { useSiteDataQuery } from "../hooks/useSiteDataQuery"
 
+const isBrowser = typeof window !== "undefined"
+
 const Header = () => {
   const siteData = useSiteDataQuery()
   const [bool, setBool] = useState(false)
@@ -24,12 +26,14 @@ const Header = () => {
     setBool(!bool)
   }
 
-  window.addEventListener("scroll", changeNavColor)
-  function changeNavColor() {
-    if (window.scrollY >= 80) {
-      setNavbar(true)
-    } else {
-      setNavbar(false)
+  if (isBrowser) {
+    window.addEventListener("scroll", changeNavColor)
+    function changeNavColor() {
+      if (window.scrollY >= 80) {
+        setNavbar(true)
+      } else {
+        setNavbar(false)
+      }
     }
   }
 
