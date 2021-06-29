@@ -17,11 +17,9 @@ const WorkPage = ({ location }) => {
   const workData = useWorkDataQuery()
   const [content, setModalContent] = useState()
   const [projectId, setProjectId] = useState(
-    !isNaN(`${location.state.projectIndex}`)
-      ? `${location.state.projectIndex}`
-      : 0
+    !isNaN(location.state.projectIndex) ? location.state.projectIndex : 0
   )
-
+  // TODO build doesn't like location state - implement redux state instead.
   function displayInfo(num) {
     setProjectId(num)
   }

@@ -8,7 +8,7 @@ import { useWorkDataQuery } from "../hooks/useWorkDataQuery"
 
 const Work = ({ heading }) => {
   const workData = useWorkDataQuery()
-  const recentWork = workData.slice(0, 4) // 3 showcases on landing page
+  const recentWork = workData.slice(0, 4) // 4 showcases on landing page
 
   return (
     <WorkContainer>
