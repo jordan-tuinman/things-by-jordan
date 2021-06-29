@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 // Components:
 import Layout from "../components/layout"
+import Seo from "../components/seo"
 import About from "../components/about"
 
 // Contentful data:
@@ -14,6 +15,7 @@ const AboutPage = () => {
 
   return (
     <Layout>
+      <Seo title="About" />
       <About
         heading="About me"
         title="Hey! My name is Jordan Tuinman."

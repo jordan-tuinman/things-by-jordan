@@ -7,6 +7,8 @@ module.exports = {
     title: `Things by Jordan`,
     description: `a portfolio site to showcase the things created by me, Jordan
     Tuinman`,
+    url: "",
+    image: "",
     author: `Jordan Tuinman`,
   },
   plugins: [

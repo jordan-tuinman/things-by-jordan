@@ -4,6 +4,7 @@ import styled from "styled-components"
 
 // Components:
 import Layout from "../components/layout"
+import Seo from "../components/seo"
 import ArtModal from "../components/artModal"
 
 // Contentful data:
@@ -22,6 +23,7 @@ const ArtPage = () => {
 
   return (
     <Layout>
+      <Seo title="Art" />
       <ArtContainer>
         <Heading className="greenfuz">Arty Things</Heading>
         <Text>

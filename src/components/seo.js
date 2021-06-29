@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-// TODO: properly utilise seo component
+// TODO: properly utilise seo component - read gatsby guide
 
 import * as React from "react"
 import PropTypes from "prop-types"

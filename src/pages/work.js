@@ -7,6 +7,7 @@ import { FaGithub, FaExternalLinkSquareAlt } from "react-icons/fa"
 
 // Components:
 import Layout from "../components/layout"
+import Seo from "../components/seo"
 import WorkModal from "../components/workModal"
 
 // Contentful data:
@@ -33,6 +34,7 @@ const WorkPage = ({ location }) => {
 
   return (
     <Layout>
+      <Seo title="Work" />
       <WorkContainer>
         <WorkHeading className="greenfuz">Work Things</WorkHeading>
         <ContentWrapper>
