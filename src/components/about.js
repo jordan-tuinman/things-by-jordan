@@ -25,7 +25,7 @@ const About = ({
 
   return (
     <AboutContainer>
-      <Description className="greenfuz">{heading}</Description>
+      <Description className="creepster">{heading}</Description>
 
       <ContentWrapper>
         <ColumnOne>

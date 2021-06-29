@@ -19,34 +19,59 @@ const Technologies = ({ title }) => {
     <Container>
       <Heading>{title}</Heading>
       <Wrapper>
-        <HtmlIcon className="tech" href="https://html.spec.whatwg.org/">
+        <HtmlIcon
+          className="tech"
+          target="_blank"
+          href="https://html.spec.whatwg.org/"
+        >
           <SiHtml5 />
         </HtmlIcon>
         <CssIcon
           className="tech"
+          target="_blank"
           href="https://www.w3.org/Style/CSS/Overview.en.html"
         >
           <SiCss3 />
         </CssIcon>
-        <JsIcon className="tech" href="https://www.javascript.com/">
+        <JsIcon
+          className="tech"
+          target="_blank"
+          href="https://www.javascript.com/"
+        >
           <SiJavascript />
         </JsIcon>
-        <WordpressIcon className="tech" href="https://wordpress.com/">
+        <WordpressIcon
+          className="tech"
+          target="_blank"
+          href="https://wordpress.com/"
+        >
           <SiWordpress />
         </WordpressIcon>
-        <ReactIcon className="tech" href="https://reactjs.org/">
+        <ReactIcon className="tech" target="_blank" href="https://reactjs.org/">
           <SiReact />
         </ReactIcon>
-        <ReduxIcon className="tech" href="https://redux.js.org/">
+        <ReduxIcon
+          className="tech"
+          target="_blank"
+          href="https://redux.js.org/"
+        >
           <SiRedux />
         </ReduxIcon>
-        <GatsbyIcon className="tech" href="https://www.gatsbyjs.com/">
+        <GatsbyIcon
+          className="tech"
+          target="_blank"
+          href="https://www.gatsbyjs.com/"
+        >
           <SiGatsby />
         </GatsbyIcon>
-        <NodeIcon className="tech" href="https://nodejs.org/en/">
+        <NodeIcon
+          className="tech"
+          target="_blank"
+          href="https://nodejs.org/en/"
+        >
           <SiNodeDotJs />
         </NodeIcon>
-        <JestIcon className="tech" href="https://jestjs.io/">
+        <JestIcon className="tech" target="_blank" href="https://jestjs.io/">
           <SiJest />
         </JestIcon>
       </Wrapper>

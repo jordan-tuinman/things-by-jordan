@@ -60,7 +60,7 @@ const WorkPage = ({ location }) => {
           <ColumnTwo>
             <h2>{workData[projectId].node.nameOfProject}</h2>
             {workData[projectId].node.projectLink ? (
-              <a href={workData[projectId].node.projectLink}>
+              <a target="_blank" href={workData[projectId].node.projectLink}>
                 <FaExternalLinkSquareAlt />
                 <p>{workData[projectId].node.nameOfProject}</p>
               </a>
@@ -68,7 +68,7 @@ const WorkPage = ({ location }) => {
               <></>
             )}
             {workData[projectId].node.gitHubLink ? (
-              <a href={workData[projectId].node.gitHubLink}>
+              <a target="_blank" href={workData[projectId].node.gitHubLink}>
                 <FaGithub />
                 <p>GitHub repo</p>
               </a>
@@ -122,7 +122,10 @@ const WorkPage = ({ location }) => {
                 <InfoWrap>
                   <h2>{workData[projectId].node.nameOfProject}</h2>
                   {workData[projectId].node.projectLink ? (
-                    <a href={workData[projectId].node.projectLink}>
+                    <a
+                      target="_blank"
+                      href={workData[projectId].node.projectLink}
+                    >
                       <FaExternalLinkSquareAlt />
                       <p>{workData[projectId].node.nameOfProject}</p>
                     </a>
@@ -130,7 +133,10 @@ const WorkPage = ({ location }) => {
                     <></>
                   )}
                   {workData[projectId].node.gitHubLink ? (
-                    <a href={workData[projectId].node.gitHubLink}>
+                    <a
+                      target="_blank"
+                      href={workData[projectId].node.gitHubLink}
+                    >
                       <FaGithub />
                       <p>GitHub repo</p>
                     </a>
