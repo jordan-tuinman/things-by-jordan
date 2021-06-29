@@ -1,12 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 
-// TODO: confirm green fuz added properly
-
 export const GlobalStyle = createGlobalStyle`
-@font-face {
-  font-family: 'Green Fuz';
-  src: local('Green Fuz'), url(../../fonts/green-fuz.ttf) format('truetype');
-}
 
 body {
   background-color: #0c0c0c ;
@@ -22,10 +16,11 @@ body {
   box-sizing: border-box;
 }
 
-.greenfuz {
-  font-family: 'Green Fuz';
+.creepster {
+  font-family: 'Creepster';
+  font-weight: 400;
   color: #1A1A1A;
-  letter-spacing: .2rem;
+  letter-spacing: .25rem;
 }
 
 .navbar.active {

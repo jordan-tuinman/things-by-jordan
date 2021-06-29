@@ -12,7 +12,7 @@ const Work = ({ heading }) => {
 
   return (
     <WorkContainer>
-      <WorkHeading className="greenfuz">{heading}</WorkHeading>
+      <WorkHeading className="creepster">{heading}</WorkHeading>
       <WorkWrapper>
         {recentWork.map((item, index) => (
           <Link key={index} to="/work" state={{ projectIndex: index }}>

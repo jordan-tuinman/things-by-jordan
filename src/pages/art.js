@@ -25,7 +25,7 @@ const ArtPage = () => {
     <Layout>
       <Seo title="Art" />
       <ArtContainer>
-        <Heading className="greenfuz">Arty Things</Heading>
+        <Heading className="creepster">Arty Things</Heading>
         <Text>
           This is just a space for me to share some of my drawings, art, and
           other designs. Mostly I just like to draw for fun, mucking about with

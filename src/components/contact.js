@@ -13,7 +13,7 @@ const Contact = () => {
   return (
     <ContactContainer>
       <ContentWrapper>
-        <Description className="greenfuz">Get in touch!</Description>
+        <Description className="creepster">Get in touch!</Description>
         <Text
           dangerouslySetInnerHTML={{
             __html: `${siteData.contactText.childMarkdownRemark.html}`,

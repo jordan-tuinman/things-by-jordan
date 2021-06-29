@@ -134,7 +134,8 @@ const SideBarLink = styled(Link)`
   font-size: 1.5rem;
   padding: 1rem 1rem;
   cursor: pointer;
-  font-family: "Green Fuz";
+  font-family: "Creepster";
+  letter-spacing: 0.2rem;
 `
 
 const MobileMenuLogo = styled(GatsbyImage)``
@@ -177,7 +178,8 @@ const NavLink = styled(Link)`
   font-size: 1.8rem;
   height: 100%;
   cursor: pointer;
-  font-family: "Green Fuz";
+  font-family: "Creepster";
+  letter-spacing: 0.2rem;
 `
 
 const BurgerMenu = styled(HiMenuAlt4)`

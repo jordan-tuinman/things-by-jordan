@@ -46,8 +46,8 @@ const FooterWrapper = styled.div`
 const FooterDesc = styled.div`
   h1 {
     margin-bottom: 1rem;
-    font-family: "Green Fuz";
-    letter-spacing: 0.1rem;
+    font-family: "Creepster";
+    letter-spacing: 0.2rem;
     font-size: 1.5rem;
   }
 

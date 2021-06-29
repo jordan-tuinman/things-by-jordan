@@ -36,7 +36,7 @@ const WorkPage = ({ location }) => {
     <Layout>
       <Seo title="Work" />
       <WorkContainer>
-        <WorkHeading className="greenfuz">Work Things</WorkHeading>
+        <WorkHeading className="creepster">Work Things</WorkHeading>
         <ContentWrapper>
           <ColumnOne>
             {workData.map((item, index) => (
@@ -99,7 +99,7 @@ const WorkPage = ({ location }) => {
         </ContentWrapper>
       </WorkContainer>
       <MobileContainer>
-        <WorkHeading className="greenfuz">Work Things</WorkHeading>
+        <WorkHeading className="creepster">Work Things</WorkHeading>
         <ColumnOne>
           {workData.map((item, index) => (
             <Wrapper key={index}>
