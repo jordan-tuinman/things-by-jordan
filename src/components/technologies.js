@@ -89,6 +89,10 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 2rem;
+
+  @media screen and (max-width: 400px) {
+    font-size: 1.5rem;
+  }
 `
 
 const Heading = styled.p`

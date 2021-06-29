@@ -127,6 +127,7 @@ const AboutImage = styled(GatsbyImage)`
   height: 80vh;
 
   @media screen and (max-width: 1050px) {
+    filter: brightness(100%);
     height: 60vh;
   }
 

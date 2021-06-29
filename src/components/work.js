@@ -105,6 +105,10 @@ const ProjectImage = styled(GatsbyImage)`
     filter: brightness(100%);
     cursor: pointer;
   }
+
+  @media screen and (max-width: 1050px) {
+    filter: brightness(100%);
+  }
 `
 
 const ProjectInfo = styled.div`

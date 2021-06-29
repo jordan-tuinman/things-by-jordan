@@ -75,12 +75,6 @@ const WorkPage = ({ location }) => {
             ) : (
               <></>
             )}
-
-            <Text
-              dangerouslySetInnerHTML={{
-                __html: `${workData[projectId].node.projectDescription.childMarkdownRemark.html}`,
-              }}
-            />
             <ImagesWrapper>
               {workData[projectId].node.projectImages.map((item, i) => (
                 <ProjectImage
@@ -95,6 +89,11 @@ const WorkPage = ({ location }) => {
                 />
               ))}
             </ImagesWrapper>
+            <Text
+              dangerouslySetInnerHTML={{
+                __html: `${workData[projectId].node.projectDescription.childMarkdownRemark.html}`,
+              }}
+            />
           </ColumnTwo>
         </ContentWrapper>
       </WorkContainer>
@@ -119,52 +118,53 @@ const WorkPage = ({ location }) => {
                 </ProjectCard>
               </ProjectRow>
               {projectId === index ? (
-                <InfoWrap>
-                  <h2>{workData[projectId].node.nameOfProject}</h2>
-                  {workData[projectId].node.projectLink ? (
-                    <a
-                      target="_blank"
-                      href={workData[projectId].node.projectLink}
-                    >
-                      <FaExternalLinkSquareAlt />
-                      <p>{workData[projectId].node.nameOfProject}</p>
-                    </a>
-                  ) : (
-                    <></>
-                  )}
-                  {workData[projectId].node.gitHubLink ? (
-                    <a
-                      target="_blank"
-                      href={workData[projectId].node.gitHubLink}
-                    >
-                      <FaGithub />
-                      <p>GitHub repo</p>
-                    </a>
-                  ) : (
-                    <></>
-                  )}
-
-                  <Text
-                    dangerouslySetInnerHTML={{
-                      __html: `${workData[projectId].node.projectDescription.childMarkdownRemark.html}`,
-                    }}
-                  />
-                  <ImagesWrapper>
-                    {workData[projectId].node.projectImages.map((item, i) => (
-                      <ProjectImage
-                        key={i}
-                        image={
-                          workData[projectId].node.projectImages[i]
-                            .gatsbyImageData
-                        }
-                        alt={workData[projectId].node.projectImages[i].title}
-                        onClick={() => {
-                          openModal(workData[projectId].node.projectImages[i])
-                        }}
-                      />
-                    ))}
-                  </ImagesWrapper>
-                </InfoWrap>
+                <>
+                  <InfoWrap>
+                    <h2>{workData[projectId].node.nameOfProject}</h2>
+                    {workData[projectId].node.projectLink ? (
+                      <a
+                        target="_blank"
+                        href={workData[projectId].node.projectLink}
+                      >
+                        <FaExternalLinkSquareAlt />
+                        <p>{workData[projectId].node.nameOfProject}</p>
+                      </a>
+                    ) : (
+                      <></>
+                    )}
+                    {workData[projectId].node.gitHubLink ? (
+                      <a
+                        target="_blank"
+                        href={workData[projectId].node.gitHubLink}
+                      >
+                        <FaGithub />
+                        <p>GitHub repo</p>
+                      </a>
+                    ) : (
+                      <></>
+                    )}
+                    <ImagesWrapper>
+                      {workData[projectId].node.projectImages.map((item, i) => (
+                        <ProjectImage
+                          key={i}
+                          image={
+                            workData[projectId].node.projectImages[i]
+                              .gatsbyImageData
+                          }
+                          alt={workData[projectId].node.projectImages[i].title}
+                          onClick={() => {
+                            openModal(workData[projectId].node.projectImages[i])
+                          }}
+                        />
+                      ))}
+                    </ImagesWrapper>
+                    <Text
+                      dangerouslySetInnerHTML={{
+                        __html: `${workData[projectId].node.projectDescription.childMarkdownRemark.html}`,
+                      }}
+                    />
+                  </InfoWrap>
+                </>
               ) : (
                 <></>
               )}
@@ -304,6 +304,7 @@ const InfoWrap = styled.div`
   flex-direction: column;
   background-color: #fcfcfc;
   padding: 1rem 1rem;
+  padding-top: 2rem;
   width: 100%;
 
   a {
@@ -356,7 +357,7 @@ const Text = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   line-height: 2;
-  padding-top: 1.5rem;
+  padding-bottom: 2rem;
 
   a {
     color: inherit;
@@ -366,7 +367,8 @@ const Text = styled.div`
 const ImagesWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 5px;
   padding: 2rem 0;
 `
 
@@ -379,5 +381,9 @@ const ProjectImage = styled(GatsbyImage)`
     transform: translateY(-2px);
     filter: brightness(100%);
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 1050px) {
+    filter: brightness(100%);
   }
 `
