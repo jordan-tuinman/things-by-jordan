@@ -15,10 +15,13 @@ const ArtPage = () => {
   const artData = useArtDataQuery()
 
   const [content, setModalContent] = useState()
-  function openModal(content) {
+  const [selectedImage, setSelectedImage] = useState()
+
+  function openModal(content, index) {
     const modal = document.getElementById("myModal")
     modal.style.display = "block"
     setModalContent(content)
+    setSelectedImage(index)
   }
 
   return (
@@ -38,7 +41,7 @@ const ArtPage = () => {
                 image={item.node.image.gatsbyImageData}
                 alt={item.node.title}
                 onClick={() => {
-                  openModal(item.node)
+                  openModal(item.node, index)
                 }}
               />
               <TextWrap>
@@ -47,7 +50,7 @@ const ArtPage = () => {
             </ArtCard>
           ))}
         </ImagesWrapper>
-        <ArtModal modalContent={content} />
+        <ArtModal modalContent={content} selected={selectedImage} />
       </ArtContainer>
     </Layout>
   )

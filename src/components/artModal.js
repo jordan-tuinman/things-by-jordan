@@ -5,11 +5,20 @@ import { GatsbyImage } from "gatsby-plugin-image"
 // React icons:
 import { CgClose } from "react-icons/cg"
 
-const ArtModal = ({ modalContent }) => {
+// Contentful data:
+import { useArtDataQuery } from "../hooks/useArtDataQuery"
+import Slider from "./slider"
+
+const ArtModal = ({ modalContent, selected }) => {
+  const artData = useArtDataQuery()
+
   function closeModal() {
     const modal = document.getElementById("myModal")
     modal.style.display = "none"
   }
+
+  console.log(modalContent)
+  console.log(selected)
 
   return (
     <ModalContainer id="myModal" className={"modal"}>
@@ -21,14 +30,15 @@ const ArtModal = ({ modalContent }) => {
         >
           <CgClose />
         </CloseButton>
-        {modalContent ? (
+        <Slider slides={artData} selectedSlide={selected} />
+        {/* {modalContent ? (
           <GatsbyImage
             image={modalContent.image.gatsbyImageData}
             alt={modalContent.title}
           />
         ) : (
           <></>
-        )}
+        )} */}
       </ModalContent>
     </ModalContainer>
   )

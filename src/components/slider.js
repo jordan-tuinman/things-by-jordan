@@ -1,15 +1,20 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai"
 
 import { useArtDataQuery } from "../hooks/useArtDataQuery"
 
-const Slider = ({ placeholder }) => {
-  const artData = useArtDataQuery()
+const Slider = ({ slides, selectedSlide }) => {
+  // const artData = useArtDataQuery()
+  console.log("slide selected", selectedSlide)
 
-  const [current, setCurrent] = useState(0)
-  const length = artData.length
+  const [current, setCurrent] = useState()
+  useEffect(() => {
+    setCurrent(selectedSlide)
+  }, [selectedSlide])
+
+  const length = slides.length
 
   function nextSlide() {
     setCurrent(current === length - 1 ? 0 : current + 1)
@@ -19,11 +24,11 @@ const Slider = ({ placeholder }) => {
     setCurrent(current === 0 ? length - 1 : current - 1)
   }
 
-  if (!Array.isArray(artData) || artData.length <= 0) {
+  if (!Array.isArray(slides) || slides.length <= 0) {
     return null
   }
 
-  console.log(artData)
+  console.log(slides)
   // TODO: pass in data from parent component at "placeholder"
   return (
     <section className="slider">
@@ -36,7 +41,7 @@ const Slider = ({ placeholder }) => {
 
       <h1>slider test</h1>
 
-      {artData.map((slide, index) => (
+      {slides.map((slide, index) => (
         <div
           className={index === current ? "slide active" : "slide"}
           key={index}
