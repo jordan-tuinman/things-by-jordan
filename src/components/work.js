@@ -3,6 +3,10 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
+// Redux:
+import reduxStore from "../state/reduxStore"
+import { setLink } from "../state/actions/index"
+
 // Contentful data:
 import { useWorkDataQuery } from "../hooks/useWorkDataQuery"
 
@@ -15,7 +19,13 @@ const Work = ({ heading }) => {
       <WorkHeading className="creepster">{heading}</WorkHeading>
       <WorkWrapper>
         {recentWork.map((item, index) => (
-          <Link key={index} to="/work" state={{ projectIndex: index }}>
+          <Link
+            key={index}
+            to="/work"
+            onClick={() => {
+              reduxStore.dispatch(setLink(index))
+            }}
+          >
             <ProjectCard>
               <ProjectImage
                 image={item.node.projectImages[0].gatsbyImageData}

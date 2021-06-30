@@ -8,3 +8,5 @@
 import "@fontsource/anton"
 import "@fontsource/roboto-condensed"
 import "@fontsource/creepster"
+
+export { default as wrapRootElement } from "./src/state/reduxWrapper"

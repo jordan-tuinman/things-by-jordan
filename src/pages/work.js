@@ -1,6 +1,9 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
+
+// Redux:
+import { useSelector } from "react-redux"
 
 //  React Icons:
 import { FaGithub, FaExternalLinkSquareAlt } from "react-icons/fa"
@@ -13,13 +16,19 @@ import WorkModal from "../components/workModal"
 // Contentful data:
 import { useWorkDataQuery } from "../hooks/useWorkDataQuery"
 
-const WorkPage = ({ location }) => {
+const WorkPage = () => {
   const workData = useWorkDataQuery()
+
+  const [selected, setSelected] = useState(useSelector(state => state.link))
+  useEffect(() => {
+    if (selected > 0) {
+      setProjectId(selected)
+    }
+  }, [selected])
+
   const [content, setModalContent] = useState()
-  const [projectId, setProjectId] = useState(
-    !isNaN(location.state.projectIndex) ? location.state.projectIndex : 0
-  )
-  // TODO build doesn't like location state - implement redux state instead.
+  const [projectId, setProjectId] = useState(0)
+
   function displayInfo(num) {
     setProjectId(num)
   }
