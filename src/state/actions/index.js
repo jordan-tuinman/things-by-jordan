@@ -4,10 +4,3 @@ export const setLink = link => {
     link: link,
   }
 }
-
-export const setSlider = slider => {
-  return {
-    type: "SET_CONTENT",
-    slider: slider,
-  }
-}

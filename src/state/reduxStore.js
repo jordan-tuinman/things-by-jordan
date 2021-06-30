@@ -1,9 +1,8 @@
 import { createStore } from "redux"
-import reducers from "./reducers"
+import reducers from "../state/reducers"
 
 const initialState = {
   link: 0,
-  slider: [],
 }
 const store = createStore(reducers, initialState)
 
