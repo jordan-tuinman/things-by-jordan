@@ -1,16 +1,9 @@
-const initialState = { link: 0 }
+import { combineReducers } from "redux"
 
-const linkReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "SET_LINK":
-      return {
-        ...state,
-        link: action.link,
-      }
+import linkReducer from "./linkReducer"
+import sliderReducer from "./sliderReducer"
 
-    default:
-      return state
-  }
-}
-
-export default linkReducer
+export default combineReducers({
+  link: linkReducer,
+  slider: sliderReducer,
+})
