@@ -2,12 +2,11 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-// React icons:
-import { CgClose } from "react-icons/cg"
+// Components:
+import Slider from "./slider"
 
 // Contentful data:
 import { useArtDataQuery } from "../hooks/useArtDataQuery"
-import Slider from "./slider"
 
 const ArtModal = ({ selected }) => {
   const artData = useArtDataQuery()
@@ -53,7 +52,3 @@ const ModalContent = styled.div`
     width: 90%;
   }
 `
-
-// display: flex;
-// justify-content: center;
-// align-items: center;

@@ -6,7 +6,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai"
 import { CgClose } from "react-icons/cg"
 
-const Slider = ({ slides, selectedSlide }) => {
+const WorkSlider = ({ slides, selectedSlide }) => {
   function closeModal() {
     const modal = document.getElementById("myModal")
     modal.style.display = "none"
@@ -30,6 +30,9 @@ const Slider = ({ slides, selectedSlide }) => {
   if (!Array.isArray(slides) || slides.length <= 0) {
     return null
   }
+
+  console.log(selectedSlide)
+  console.log(slides) //currently all projects
 
   return (
     <section className="slider">
@@ -55,8 +58,8 @@ const Slider = ({ slides, selectedSlide }) => {
             {index === current && (
               <GatsbyImage
                 className="slider-image"
-                image={slide.node.image.gatsbyImageData}
-                alt={slide.node.title}
+                image={slide.gatsbyImageData}
+                alt={slide.title}
               />
             )}
           </div>
@@ -72,7 +75,7 @@ const Slider = ({ slides, selectedSlide }) => {
   )
 }
 
-export default Slider
+export default WorkSlider
 
 const ImageWrapper = styled.div`
   display: flex;

@@ -14,13 +14,11 @@ import { node } from "prop-types"
 const ArtPage = () => {
   const artData = useArtDataQuery()
 
-  const [content, setModalContent] = useState()
   const [selectedImage, setSelectedImage] = useState()
 
-  function openModal(content, index) {
+  function openModal(index) {
     const modal = document.getElementById("myModal")
     modal.style.display = "block"
-    setModalContent(content)
     setSelectedImage(index)
   }
 
@@ -41,7 +39,7 @@ const ArtPage = () => {
                 image={item.node.image.gatsbyImageData}
                 alt={item.node.title}
                 onClick={() => {
-                  openModal(item.node, index)
+                  openModal(index)
                 }}
               />
               <TextWrap>
@@ -50,7 +48,7 @@ const ArtPage = () => {
             </ArtCard>
           ))}
         </ImagesWrapper>
-        <ArtModal modalContent={content} selected={selectedImage} />
+        <ArtModal selected={selectedImage} />
       </ArtContainer>
     </Layout>
   )

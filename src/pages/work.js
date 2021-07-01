@@ -20,23 +20,25 @@ const WorkPage = () => {
   const workData = useWorkDataQuery()
 
   const [selected, setSelected] = useState(useSelector(state => state.link))
+  const [projectId, setProjectId] = useState(0)
   useEffect(() => {
     if (selected > 0) {
       setProjectId(selected)
     }
   }, [selected])
 
-  const [content, setModalContent] = useState()
-  const [projectId, setProjectId] = useState(0)
+  const [selectedImage, setSelectedImage] = useState()
+  const [selectedProject, setSelectedProject] = useState(projectId)
 
   function displayInfo(num) {
     setProjectId(num)
+    setSelectedProject(num)
   }
 
-  function openModal(content) {
+  function openModal(index) {
     const modal = document.getElementById("myModal")
     modal.style.display = "block"
-    setModalContent(content)
+    setSelectedImage(index)
   }
 
   return (
@@ -91,7 +93,7 @@ const WorkPage = () => {
                   }
                   alt={workData[projectId].node.projectImages[i].title}
                   onClick={() => {
-                    openModal(workData[projectId].node.projectImages[i])
+                    openModal(i)
                   }}
                 />
               ))}
@@ -160,7 +162,7 @@ const WorkPage = () => {
                           }
                           alt={workData[projectId].node.projectImages[i].title}
                           onClick={() => {
-                            openModal(workData[projectId].node.projectImages[i])
+                            openModal(i)
                           }}
                         />
                       ))}
@@ -179,7 +181,10 @@ const WorkPage = () => {
           ))}
         </ColumnOne>
       </MobileContainer>
-      <WorkModal modalContent={content} />
+      <WorkModal
+        selectedImage={selectedImage}
+        selectedProject={selectedProject}
+      />
     </Layout>
   )
 }

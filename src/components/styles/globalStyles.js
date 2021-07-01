@@ -128,7 +128,7 @@ body {
 .right-arrow {
   position: absolute;
   top: 50%;
-  right: 4%;
+  right: 3%;
   font-size: 2.5rem;
   color: linear-gradient(
     180deg,
@@ -148,7 +148,7 @@ body {
 .left-arrow {
   position: absolute;
   top: 50%;
-  left: 4%;
+  left: 3%;
   font-size: 2.5rem;
   color: linear-gradient(
     180deg,
