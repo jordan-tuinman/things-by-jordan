@@ -83,7 +83,7 @@ const ImageWrapper = styled.div`
 const CloseButton = styled.div`
   position: absolute;
   display: block;
-  padding: 1rem;
+  padding: 0.5rem;
   top: 0;
   right: 5%;
   font-size: clamp(1rem, 5vw, 2rem);
