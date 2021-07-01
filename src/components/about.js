@@ -177,7 +177,6 @@ const Text = styled.div`
   }
 
   a {
-    display: block;
     color: inherit;
   }
 `

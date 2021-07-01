@@ -130,28 +130,30 @@ const WorkPage = () => {
                 <>
                   <InfoWrap>
                     <h2>{workData[projectId].node.nameOfProject}</h2>
-                    {workData[projectId].node.projectLink ? (
-                      <a
-                        target="_blank"
-                        href={workData[projectId].node.projectLink}
-                      >
-                        <FaExternalLinkSquareAlt />
-                        <p>{workData[projectId].node.nameOfProject}</p>
-                      </a>
-                    ) : (
-                      <></>
-                    )}
-                    {workData[projectId].node.gitHubLink ? (
-                      <a
-                        target="_blank"
-                        href={workData[projectId].node.gitHubLink}
-                      >
-                        <FaGithub />
-                        <p>GitHub repo</p>
-                      </a>
-                    ) : (
-                      <></>
-                    )}
+                    <LinksWrap>
+                      {workData[projectId].node.projectLink ? (
+                        <ProjectLinks
+                          target="_blank"
+                          href={workData[projectId].node.projectLink}
+                        >
+                          <FaExternalLinkSquareAlt />
+                          <p>{workData[projectId].node.nameOfProject}</p>
+                        </ProjectLinks>
+                      ) : (
+                        <></>
+                      )}
+                      {workData[projectId].node.gitHubLink ? (
+                        <ProjectLinks
+                          target="_blank"
+                          href={workData[projectId].node.gitHubLink}
+                        >
+                          <FaGithub />
+                          <p>GitHub repo</p>
+                        </ProjectLinks>
+                      ) : (
+                        <></>
+                      )}
+                    </LinksWrap>
                     <ImagesWrapper>
                       {workData[projectId].node.projectImages.map((item, i) => (
                         <ProjectImage
@@ -269,21 +271,18 @@ const ColumnTwo = styled.div`
   }
 
   a {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     color: #1a1a1a;
     cursor: pointer;
     transition: 0.3s !important;
+  }
 
-    p {
-      padding-left: 1rem;
-    }
+  p {
+    padding-left: 1rem;
+  }
 
-    &:hover {
-      color: #000;
-      transform: translateY(-2px);
-    }
+  &:hover {
+    color: #000;
+    transform: translateY(-2px);
   }
 `
 
@@ -318,16 +317,6 @@ const InfoWrap = styled.div`
   padding: 1rem 1rem;
   padding-top: 2rem;
   width: 100%;
-
-  a {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color: #1a1a1a;
-    cursor: pointer;
-    transition: 0.3s !important;
-    padding-top: 0.5rem;
-  }
 
   p {
     padding: 0 0.5rem;
@@ -398,4 +387,19 @@ const ProjectImage = styled(GatsbyImage)`
   @media screen and (max-width: 1050px) {
     filter: brightness(100%);
   }
+`
+const LinksWrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
+
+const ProjectLinks = styled.a`
+  display: flex;
+  align-items: center;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: 0.3s !important;
+  padding-top: 0.5rem;
+  width: 100%;
 `
