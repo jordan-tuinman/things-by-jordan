@@ -22,13 +22,8 @@ const Header = () => {
   const url = typeof window !== "undefined" ? window.location.pathname : ""
 
   const siteData = useSiteDataQuery()
-  const [bool, setBool] = useState(false)
   const [navbar, setNavbar] = useState(false)
   const [sidebar, setSidebar] = useState(false)
-
-  function toggle() {
-    setBool(!bool)
-  }
 
   if (isBrowser) {
     window.addEventListener("scroll", changeNavColor)
