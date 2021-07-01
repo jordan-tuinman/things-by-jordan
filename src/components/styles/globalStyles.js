@@ -31,9 +31,6 @@ body {
   )
 }
 
-.logo {
-  display: none;
-}
 .logo.active {
   display: block;
   width: 150px;

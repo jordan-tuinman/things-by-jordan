@@ -19,59 +19,7 @@ import { useSiteDataQuery } from "../hooks/useSiteDataQuery"
 const isBrowser = typeof window !== "undefined"
 
 const Header = () => {
-  // Function to check if home page - conditional header:
   const url = typeof window !== "undefined" ? window.location.pathname : ""
-  function checkHome() {
-    if (url === "/") {
-      return (
-        <Nav className={navbar ? "navbar active" : "navbar"}>
-          <NavLink to="/">
-            <Logo
-              className={navbar || bool ? "logo active" : "logo"}
-              image={siteData.siteLogo.gatsbyImageData}
-              alt={siteData.siteLogo.title}
-            />
-          </NavLink>
-          <MenuWrapper>
-            <NavMenu>
-              {navbar ? (
-                menuData.map((item, index) => (
-                  <NavLink className="navlink" to={item.link} key={index}>
-                    {item.title}
-                  </NavLink>
-                ))
-              ) : (
-                <></>
-              )}
-            </NavMenu>
-            {navbar ? <SocialMenu /> : <></>}
-          </MenuWrapper>
-        </Nav>
-      )
-    } else {
-      return (
-        <Nav className={navbar ? "navbar active" : "navbar"}>
-          <NavLink to="/">
-            <Logo
-              className={"logo active"}
-              image={siteData.siteLogo.gatsbyImageData}
-              alt={siteData.siteLogo.title}
-            />
-          </NavLink>
-          <MenuWrapper>
-            <NavMenu>
-              {menuData.map((item, index) => (
-                <NavLink className="navlink" to={item.link} key={index}>
-                  {item.title}
-                </NavLink>
-              ))}
-            </NavMenu>
-            <SocialMenu />
-          </MenuWrapper>
-        </Nav>
-      )
-    }
-  }
 
   const siteData = useSiteDataQuery()
   const [bool, setBool] = useState(false)
@@ -99,7 +47,54 @@ const Header = () => {
 
   return (
     <>
-      <>{checkHome()}</>
+      {url === "/" ? (
+        <Nav className={navbar ? "navbar active" : "navbar"}>
+          <MenuWrapper>
+            <NavLink to="/">
+              <Logo
+                className={navbar ? "logo active" : "logo"}
+                image={siteData.siteLogo.gatsbyImageData}
+                alt={siteData.siteLogo.title}
+              />
+            </NavLink>
+          </MenuWrapper>
+          <MenuWrapper>
+            <NavMenu>
+              {navbar ? (
+                menuData.map((item, index) => (
+                  <NavLink className="navlink" to={item.link} key={index}>
+                    {item.title}
+                  </NavLink>
+                ))
+              ) : (
+                <></>
+              )}
+            </NavMenu>
+            {navbar ? <SocialMenu /> : <></>}
+          </MenuWrapper>
+        </Nav>
+      ) : (
+        <Nav className={navbar ? "navbar active" : "navbar"}>
+          <NavLink to="/">
+            <Logo
+              className={"logo active"}
+              image={siteData.siteLogo.gatsbyImageData}
+              alt={siteData.siteLogo.title}
+            />
+          </NavLink>
+          <MenuWrapper>
+            <NavMenu>
+              {menuData.map((item, index) => (
+                <NavLink className="navlink" to={item.link} key={index}>
+                  {item.title}
+                </NavLink>
+              ))}
+            </NavMenu>
+            <SocialMenu />
+          </MenuWrapper>
+        </Nav>
+      )}
+
       <MobileNav
         onClick={() => {
           showSidebar()
@@ -237,4 +232,6 @@ const NavMenu = styled.div`
   padding: 0 2rem;
 `
 
-const Logo = styled(GatsbyImage)``
+const Logo = styled(GatsbyImage)`
+  display: none;
+`
