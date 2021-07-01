@@ -56,11 +56,16 @@ const WorkSlider = ({ slides, selectedSlide }) => {
               />
             </CloseButton>
             {index === current && (
-              <GatsbyImage
-                className="slider-image"
-                image={slide.gatsbyImageData}
-                alt={slide.title}
-              />
+              <>
+                <GatsbyImage
+                  className="slider-image"
+                  image={slide.gatsbyImageData}
+                  alt={slide.title}
+                />
+                <TextWrap>
+                  <WorkDescription>{slide.title}</WorkDescription>
+                </TextWrap>
+              </>
             )}
           </div>
         </ImageWrapper>
@@ -109,4 +114,23 @@ const CloseButton = styled.div`
   @media screen and (max-width: 480px) {
     padding: 0.5rem;
   }
+`
+
+const TextWrap = styled.div`
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  color: #e6e6e6;
+  padding: 1rem 1rem;
+  width: 90%;
+`
+
+const WorkDescription = styled.p`
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1;
 `
