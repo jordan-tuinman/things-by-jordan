@@ -31,9 +31,6 @@ const WorkSlider = ({ slides, selectedSlide }) => {
     return null
   }
 
-  console.log(selectedSlide)
-  console.log(slides) //currently all projects
-
   return (
     <section className="slider">
       <AiFillLeftCircle
