@@ -43,7 +43,7 @@ const WorkSlider = ({ slides, selectedSlide }) => {
         }}
       />
       {slides.map((slide, index) => (
-        <ImageWrapper>
+        <ImageWrapper key={index}>
           <div
             className={index === current ? "slide active" : "slide"}
             key={index}

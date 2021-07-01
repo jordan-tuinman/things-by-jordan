@@ -2,11 +2,13 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
+
+import { menuData } from "../data/menuData"
 
 // React icons;
 import { HiMenuAlt4 } from "react-icons/hi"
 import { CgClose } from "react-icons/cg"
-import { menuData } from "../data/menuData"
 
 // Components:
 import SocialMenu from "./socialMenu"
@@ -17,6 +19,60 @@ import { useSiteDataQuery } from "../hooks/useSiteDataQuery"
 const isBrowser = typeof window !== "undefined"
 
 const Header = () => {
+  // Function to check if home page - conditional header:
+  const url = typeof window !== "undefined" ? window.location.pathname : ""
+  function checkHome() {
+    if (url === "/") {
+      return (
+        <Nav className={navbar ? "navbar active" : "navbar"}>
+          <NavLink to="/">
+            <Logo
+              className={navbar || bool ? "logo active" : "logo"}
+              image={siteData.siteLogo.gatsbyImageData}
+              alt={siteData.siteLogo.title}
+            />
+          </NavLink>
+          <MenuWrapper>
+            <NavMenu>
+              {navbar ? (
+                menuData.map((item, index) => (
+                  <NavLink className="navlink" to={item.link} key={index}>
+                    {item.title}
+                  </NavLink>
+                ))
+              ) : (
+                <></>
+              )}
+            </NavMenu>
+            {navbar ? <SocialMenu /> : <></>}
+          </MenuWrapper>
+        </Nav>
+      )
+    } else {
+      return (
+        <Nav className={navbar ? "navbar active" : "navbar"}>
+          <NavLink to="/">
+            <Logo
+              className={"logo active"}
+              image={siteData.siteLogo.gatsbyImageData}
+              alt={siteData.siteLogo.title}
+            />
+          </NavLink>
+          <MenuWrapper>
+            <NavMenu>
+              {menuData.map((item, index) => (
+                <NavLink className="navlink" to={item.link} key={index}>
+                  {item.title}
+                </NavLink>
+              ))}
+            </NavMenu>
+            <SocialMenu />
+          </MenuWrapper>
+        </Nav>
+      )
+    }
+  }
+
   const siteData = useSiteDataQuery()
   const [bool, setBool] = useState(false)
   const [navbar, setNavbar] = useState(false)
@@ -43,37 +99,7 @@ const Header = () => {
 
   return (
     <>
-      <Nav className={navbar ? "navbar active" : "navbar"}>
-        <NavLink to="/">
-          <Logo
-            className={navbar || bool ? "logo active" : "logo"}
-            image={siteData.siteLogo.gatsbyImageData}
-            alt={siteData.siteLogo.title}
-          />
-        </NavLink>
-        <MenuWrapper>
-          <NavMenu>
-            {bool ? (
-              menuData.map((item, index) => (
-                <NavLink className="navlink" to={item.link} key={index}>
-                  {item.title}
-                </NavLink>
-              ))
-            ) : (
-              <></>
-            )}
-          </NavMenu>
-          {bool ? <SocialMenu /> : <></>}
-          <NavMenu
-            onClick={() => {
-              toggle()
-            }}
-          >
-            {bool ? <BurgerMenuClose /> : <BurgerMenu />}
-          </NavMenu>
-        </MenuWrapper>
-      </Nav>
-
+      <>{checkHome()}</>
       <MobileNav
         onClick={() => {
           showSidebar()
@@ -171,6 +197,7 @@ const Nav = styled.nav`
 
 const MenuWrapper = styled.div`
   display: flex;
+  padding-right: 1rem;
 `
 
 const NavLink = styled(Link)`
