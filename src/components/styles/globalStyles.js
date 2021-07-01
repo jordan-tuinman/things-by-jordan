@@ -23,10 +23,6 @@ body {
   letter-spacing: .25rem;
 }
 
-.navbar {
-  display: none;
-}
-
 .navbar.active {
   background: linear-gradient(
     180deg,
@@ -38,7 +34,6 @@ body {
 .logo {
   display: none;
 }
-
 .logo.active {
   display: block;
   width: 150px;
