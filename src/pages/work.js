@@ -288,7 +288,7 @@ const WorkHeading = styled.p`
   text-align: center;
   margin-bottom: 2rem;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 480px) {
     margin-bottom: 1rem;
   }
 `

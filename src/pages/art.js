@@ -68,7 +68,7 @@ const ArtContainer = styled.div`
   color: #000;
   padding: 3rem calc((100vw - 1300px) / 2);
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 480px) {
     padding-bottom: 0;
   }
 `
@@ -79,7 +79,7 @@ const Heading = styled.p`
   text-align: center;
   margin-bottom: 2rem;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 480px) {
     margin-bottom: 1rem;
   }
 `
@@ -110,7 +110,7 @@ const ImagesWrapper = styled.div`
     grid-gap: 10px;
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 480px) {
     grid-template-columns: 1fr 1fr;
     grid-gap: 0px;
     padding: 0 0rem;
@@ -132,7 +132,7 @@ const ArtCard = styled.div`
     cursor: pointer;
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 480px) {
     height: 200px;
   }
 `

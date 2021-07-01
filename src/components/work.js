@@ -60,7 +60,7 @@ const WorkContainer = styled.div`
     padding: 2rem calc((100vw - 1300px) / 2);
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 480px) {
     padding: 0 0rem;
     padding-top: 2rem;
   }
@@ -72,7 +72,7 @@ const WorkHeading = styled.p`
   text-align: center;
   margin-bottom: 3rem;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 480px) {
     margin-bottom: 2rem;
   }
 `
@@ -89,7 +89,7 @@ const WorkWrapper = styled.div`
     grid-gap: 10px;
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 480px) {
     grid-template-columns: 1fr;
     grid-gap: 0px;
     padding: 0 0rem;

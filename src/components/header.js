@@ -113,7 +113,7 @@ export default Header
 const MobileNav = styled.nav`
   display: none;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 480px) {
     position: sticky;
     top: 0;
     background: transparent;
@@ -164,7 +164,7 @@ const Nav = styled.nav`
   padding: 0.5rem calc((100vw - 1300px) / 2);
   z-index: 90;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 480px) {
     display: none;
   }
 `

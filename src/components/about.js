@@ -112,7 +112,7 @@ const ContentWrapper = styled.div`
     grid-template-columns: 1fr;
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 480px) {
     padding: 0 0;
   }
 `
@@ -131,7 +131,7 @@ const AboutImage = styled(GatsbyImage)`
     height: 60vh;
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 480px) {
     height: 50vh;
   }
 `

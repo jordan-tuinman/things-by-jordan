@@ -51,7 +51,7 @@ const FooterDesc = styled.div`
     font-size: 1.5rem;
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 480px) {
     padding: 0 1rem;
     padding-top: 1rem;
   }

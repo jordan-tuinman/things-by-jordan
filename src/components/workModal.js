@@ -62,7 +62,7 @@ const ModalContent = styled.div`
   @media screen and (max-width: 1050px) {
     margin: 30% auto;
   }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 480px) {
     margin: 50% auto;
   }
 `

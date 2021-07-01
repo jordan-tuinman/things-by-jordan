@@ -90,7 +90,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   font-size: 2rem;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 480px) {
     font-size: 1.5rem;
   }
 `
