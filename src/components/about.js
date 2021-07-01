@@ -92,11 +92,6 @@ const AboutContainer = styled.div`
   background: #fcfcfc;
   color: #000;
   padding: 3rem calc((100vw - 1300px) / 2);
-
-  a {
-    display: block;
-    color: inherit;
-  }
 `
 
 const Description = styled.h2`
@@ -179,6 +174,11 @@ const Text = styled.div`
 
   ul {
     padding-left: 1rem;
+  }
+
+  a {
+    display: block;
+    color: inherit;
   }
 `
 
