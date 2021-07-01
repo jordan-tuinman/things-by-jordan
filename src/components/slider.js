@@ -65,7 +65,6 @@ const Slider = ({ slides, selectedSlide }) => {
           </div>
         </ImageWrapper>
       ))}
-
       <AiFillRightCircle
         className="right-arrow"
         onClick={() => {
@@ -105,5 +104,9 @@ const CloseButton = styled.div`
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 0.5rem;
   }
 `

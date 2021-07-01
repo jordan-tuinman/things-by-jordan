@@ -9,27 +9,12 @@ import { CgClose } from "react-icons/cg"
 import { useArtDataQuery } from "../hooks/useArtDataQuery"
 import Slider from "./slider"
 
-const ArtModal = ({ modalContent, selected }) => {
+const ArtModal = ({ selected }) => {
   const artData = useArtDataQuery()
-
-  function closeModal() {
-    const modal = document.getElementById("myModal")
-    modal.style.display = "none"
-  }
-
-  console.log(modalContent)
-  console.log(selected)
 
   return (
     <ModalContainer id="myModal" className={"modal"}>
       <ModalContent>
-        {/* <CloseButton
-          onClick={() => {
-            closeModal()
-          }}
-          >
-          <CgClose />
-        </CloseButton> */}
         <Slider slides={artData} selectedSlide={selected} />
       </ModalContent>
     </ModalContainer>
