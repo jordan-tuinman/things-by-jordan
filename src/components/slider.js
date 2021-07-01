@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react"
+import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 
+// React icons:
 import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai"
-
-import { useArtDataQuery } from "../hooks/useArtDataQuery"
+import { CgClose } from "react-icons/cg"
 
 const Slider = ({ slides, selectedSlide }) => {
-  // const artData = useArtDataQuery()
   console.log("slide selected", selectedSlide)
+
+  function closeModal() {
+    const modal = document.getElementById("myModal")
+    modal.style.display = "none"
+  }
 
   const [current, setCurrent] = useState()
   useEffect(() => {
@@ -29,7 +34,6 @@ const Slider = ({ slides, selectedSlide }) => {
   }
 
   console.log(slides)
-  // TODO: pass in data from parent component at "placeholder"
   return (
     <section className="slider">
       <AiFillLeftCircle
@@ -38,22 +42,28 @@ const Slider = ({ slides, selectedSlide }) => {
           prevSlide()
         }}
       />
-
-      <h1>slider test</h1>
-
       {slides.map((slide, index) => (
-        <div
-          className={index === current ? "slide active" : "slide"}
-          key={index}
-        >
-          {index === current && (
-            <GatsbyImage
-              className="slider-image"
-              image={slide.node.image.gatsbyImageData}
-              alt={slide.node.title}
-            />
-          )}
-        </div>
+        <ImageWrapper>
+          <div
+            className={index === current ? "slide active" : "slide"}
+            key={index}
+          >
+            <CloseButton>
+              <CgClose
+                onClick={() => {
+                  closeModal()
+                }}
+              />
+            </CloseButton>
+            {index === current && (
+              <GatsbyImage
+                className="slider-image"
+                image={slide.node.image.gatsbyImageData}
+                alt={slide.node.title}
+              />
+            )}
+          </div>
+        </ImageWrapper>
       ))}
 
       <AiFillRightCircle
@@ -67,3 +77,33 @@ const Slider = ({ slides, selectedSlide }) => {
 }
 
 export default Slider
+
+const ImageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const CloseButton = styled.div`
+  position: absolute;
+  display: block;
+  padding: 1rem;
+  top: 0;
+  right: 5%;
+  font-size: clamp(1rem, 5vw, 2rem);
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  z-index: 100;
+
+  &:hover,
+  &:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+`

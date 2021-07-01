@@ -68,7 +68,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100;
+  z-index: 90;
 }
 
 .menu-bars {
@@ -113,47 +113,70 @@ body {
 }
 
 .slider {
-  position: relative;
+  display: flex;
   height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  z-index: 100;
 }
 
 .slider-image {
-  width: 1000px;
-  height: 600px;
-
+  width: 90%;
 }
 
 .right-arrow {
   position: absolute;
   top: 50%;
-  right: 32px;
-  font-size: 3rem;
-  color: red;
+  right: 4%;
+  font-size: 2.5rem;
+  color: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  opacity: 0.7;
   z-index: 10;
   cursor: pointer;
   user-select: none;
+
+  @media screen and (max-width: 480px) {
+    font-size: 2rem;
+  }
 }
 
 .left-arrow {
   position: absolute;
   top: 50%;
-  left: 32px;
-  font-size: 3rem;
-  color: red;
+  left: 4%;
+  font-size: 2.5rem;
+  color: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  opacity: 0.7;
   z-index: 10;
   cursor: pointer;
   user-select: none;
+
+  @media screen and (max-width: 480px) {
+    font-size: 2rem;
+  }
 }
 
 .slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
   transition-duration: 1s ease; 
 }
 
 .slide.active { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 1;
   transition-duration: 1s; 
   transform: scale(1.08);

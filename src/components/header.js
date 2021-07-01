@@ -122,7 +122,7 @@ const MobileNav = styled.nav`
     align-items: center;
     justify-content: flex-end;
     padding: 0.5rem 1rem;
-    z-index: 100;
+    z-index: 90;
   }
 `
 
@@ -162,7 +162,7 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1300px) / 2);
-  z-index: 100;
+  z-index: 90;
 
   @media screen and (max-width: 400px) {
     display: none;
