@@ -7,7 +7,7 @@ module.exports = {
     title: `Things by Jordan`,
     description: `a portfolio site to showcase the things created by me, Jordan Tuinman`,
     url: "https://www.thingsbyjordan.com/",
-    image: `src/images/website-meta-image.png`,
+    image: `${__dirname}/src/images/website-meta-image.png`,
     author: `Jordan Tuinman`,
   },
   plugins: [
