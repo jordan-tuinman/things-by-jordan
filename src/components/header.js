@@ -100,15 +100,36 @@ const Header = () => {
           </NavMenu>
         </MenuWrapper>
       </Nav>
+      <MobileBanner>
+        <NavLink to="/">
+          <Logo
+            className={navbar || bool ? "logo active" : "logo"}
+            image={siteData.siteLogo.gatsbyImageData}
+            alt={siteData.siteLogo.title}
+          />
+        </NavLink>
+      </MobileBanner>
       <MobileNav
         onClick={() => {
           showSidebar()
         }}
       >
         {sidebar ? (
-          <BurgerMenuClose className={navbar ? "mobile-menu-icons" : ""} />
+          <MobileNavMenu
+            onClick={() => {
+              showSidebar()
+            }}
+          >
+            <BurgerMenuClose className={navbar ? "mobile-menu-icons" : ""} />
+          </MobileNavMenu>
         ) : (
-          <BurgerMenu className={navbar ? "mobile-menu-icons" : ""} />
+          <MobileNavMenu
+            onClick={() => {
+              showSidebar()
+            }}
+          >
+            <BurgerMenu className={navbar ? "mobile-menu-icons" : ""} />
+          </MobileNavMenu>
         )}
         <Sidebar className={sidebar ? "mobile-menu active" : "mobile-menu"}>
           <LinkWrapper>
@@ -136,6 +157,20 @@ const Header = () => {
 
 export default Header
 
+const MobileBanner = styled.div`
+  display: none;
+
+  @media screen and (max-width: 480px) {
+    position: absolute;
+    top: 0;
+    background: "transparent";
+    height: 100px;
+    width: 100%;
+    display: flex;
+    z-index: 90;
+  }
+`
+
 const MobileNav = styled.nav`
   display: none;
 
@@ -143,7 +178,7 @@ const MobileNav = styled.nav`
     position: sticky;
     top: 0;
     margin-left: 80%;
-    background: transparent;
+    background: "transparent";
     height: 100px;
     display: flex;
     align-items: center;
@@ -222,6 +257,7 @@ const BurgerMenu = styled(HiMenuAlt4)`
   font-size: 2.5rem;
   cursor: pointer;
   color: #fff;
+  z-index: 100;
 `
 
 const BurgerMenuClose = styled(CgClose)`
@@ -231,12 +267,18 @@ const BurgerMenuClose = styled(CgClose)`
   font-size: 2.5rem;
   cursor: pointer;
   color: #fff;
+  z-index: 100;
 `
 
 const NavMenu = styled.div`
   display: flex;
   align-items: center;
   padding: 0 2rem;
+`
+
+const MobileNavMenu = styled.div`
+  display: flex;
+  align-items: center;
 `
 
 const Logo = styled(GatsbyImage)`
