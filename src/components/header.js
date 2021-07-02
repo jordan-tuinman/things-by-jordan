@@ -20,8 +20,8 @@ const Header = () => {
   const url = typeof window !== "undefined" ? window.location.pathname : ""
 
   const siteData = useSiteDataQuery()
-  const [navbar, setNavbar] = useState(false)
-  const [bool, setBool] = useState(false)
+  const [navbar, setNavbar] = useState(url === "/" ? false : true)
+  const [bool, setBool] = useState(url === "/" ? false : true)
   const [sidebar, setSidebar] = useState(false)
 
   function toggle() {
@@ -50,8 +50,12 @@ const Header = () => {
   }
 
   function closeMenu() {
-    setNavbar(false)
-    setBool(false)
+    if (url === "/") {
+      setNavbar(false)
+      setBool(false)
+    } else {
+      return null
+    }
   }
 
   function showSidebar() {
@@ -60,6 +64,39 @@ const Header = () => {
 
   return (
     <>
+      {/* {url != "/" ? 
+          <Nav className="navbar active">
+          <NavLink to="/">
+            <Logo
+              className={navbar || bool ? "logo active" : "logo"}
+              image={siteData.siteLogo.gatsbyImageData}
+              alt={siteData.siteLogo.title}
+              />
+          </NavLink>
+          <MenuWrapper>
+            <NavMenu>
+              {bool ? (
+                menuData.map((item, index) => (
+                  <NavLink className="navlink" to={item.link} key={index}>
+                    {item.title}
+                  </NavLink>
+                ))
+                ) : (
+                  <></>
+                  )}
+            </NavMenu>
+            {bool ? <SocialMenu /> : <></>}
+            <NavMenu
+              onClick={() => {
+                toggle()
+              }}
+              >
+              {bool ? <BurgerMenuClose /> : <BurgerMenu />}
+            </NavMenu>
+          </MenuWrapper>
+        </Nav>
+  
+  : */}
       <Nav className={navbar ? "navbar active" : "navbar"}>
         <NavLink to="/">
           <Logo
@@ -90,6 +127,7 @@ const Header = () => {
           </NavMenu>
         </MenuWrapper>
       </Nav>
+      {/* } */}
       <MobileNav
         onClick={() => {
           showSidebar()
