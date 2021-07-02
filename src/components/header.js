@@ -36,7 +36,6 @@ const Header = () => {
   }, [url])
 
   if (isBrowser) {
-    console.log(window.pageYOffset)
     window.addEventListener("scroll", changeNavColor)
     function changeNavColor() {
       if (window.pageYOffset >= 100) {

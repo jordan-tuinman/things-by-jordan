@@ -415,4 +415,5 @@ const ProjectLinks = styled.a`
   cursor: pointer;
   transition: 0.3s !important;
   padding-top: 0.5rem;
+  text-decoration: none;
 `
