@@ -68,22 +68,30 @@ const WorkPage = () => {
           </ColumnOne>
           <ColumnTwo>
             <h2>{workData[projectId].node.nameOfProject}</h2>
-            {workData[projectId].node.projectLink ? (
-              <a target="_blank" href={workData[projectId].node.projectLink}>
-                <FaExternalLinkSquareAlt />
-                <p>{workData[projectId].node.nameOfProject}</p>
-              </a>
-            ) : (
-              <></>
-            )}
-            {workData[projectId].node.gitHubLink ? (
-              <a target="_blank" href={workData[projectId].node.gitHubLink}>
-                <FaGithub />
-                <p>GitHub repo</p>
-              </a>
-            ) : (
-              <></>
-            )}
+            <LinksWrap>
+              {workData[projectId].node.projectLink ? (
+                <ProjectLinks
+                  target="_blank"
+                  href={workData[projectId].node.projectLink}
+                >
+                  <FaExternalLinkSquareAlt />
+                  <p>{workData[projectId].node.nameOfProject}</p>
+                </ProjectLinks>
+              ) : (
+                <></>
+              )}
+              {workData[projectId].node.gitHubLink ? (
+                <ProjectLinks
+                  target="_blank"
+                  href={workData[projectId].node.gitHubLink}
+                >
+                  <FaGithub />
+                  <p>GitHub repo</p>
+                </ProjectLinks>
+              ) : (
+                <></>
+              )}
+            </LinksWrap>
             <ImagesWrapper>
               {workData[projectId].node.projectImages.map((item, i) => (
                 <ProjectImage
@@ -392,6 +400,7 @@ const LinksWrap = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
 `
 
 const ProjectLinks = styled.a`
@@ -401,5 +410,4 @@ const ProjectLinks = styled.a`
   cursor: pointer;
   transition: 0.3s !important;
   padding-top: 0.5rem;
-  width: 100%;
 `
