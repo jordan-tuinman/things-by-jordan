@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
@@ -20,20 +20,28 @@ const Header = () => {
   const url = typeof window !== "undefined" ? window.location.pathname : ""
 
   const siteData = useSiteDataQuery()
-  const [navbar, setNavbar] = useState(url === "/" ? false : true)
-  const [bool, setBool] = useState(url === "/" ? false : true)
+  const [navbar, setNavbar] = useState(true)
+  const [bool, setBool] = useState(true)
   const [sidebar, setSidebar] = useState(false)
 
   function toggle() {
     setBool(!bool)
   }
 
+  useEffect(() => {
+    if (url === "/") {
+      setNavbar(false)
+      setBool(false)
+    }
+  }, [url])
+
   if (isBrowser) {
+    console.log(window.pageYOffset)
     window.addEventListener("scroll", changeNavColor)
     function changeNavColor() {
-      if (window.scrollY >= 2) {
+      if (window.pageYOffset >= 100) {
         return null
-      } else if (window.scrollY >= 1) {
+      } else if (window.pageYOffset >= 50) {
         showMenu()
       } else {
         closeMenu()
