@@ -34,7 +34,6 @@ const Header = () => {
       if (window.scrollY >= 2) {
         return null
       } else if (window.scrollY >= 1) {
-        console.log(window.scrollY)
         showMenu()
       } else {
         closeMenu()
@@ -64,39 +63,6 @@ const Header = () => {
 
   return (
     <>
-      {/* {url != "/" ? 
-          <Nav className="navbar active">
-          <NavLink to="/">
-            <Logo
-              className={navbar || bool ? "logo active" : "logo"}
-              image={siteData.siteLogo.gatsbyImageData}
-              alt={siteData.siteLogo.title}
-              />
-          </NavLink>
-          <MenuWrapper>
-            <NavMenu>
-              {bool ? (
-                menuData.map((item, index) => (
-                  <NavLink className="navlink" to={item.link} key={index}>
-                    {item.title}
-                  </NavLink>
-                ))
-                ) : (
-                  <></>
-                  )}
-            </NavMenu>
-            {bool ? <SocialMenu /> : <></>}
-            <NavMenu
-              onClick={() => {
-                toggle()
-              }}
-              >
-              {bool ? <BurgerMenuClose /> : <BurgerMenu />}
-            </NavMenu>
-          </MenuWrapper>
-        </Nav>
-  
-  : */}
       <Nav className={navbar ? "navbar active" : "navbar"}>
         <NavLink to="/">
           <Logo
@@ -127,7 +93,6 @@ const Header = () => {
           </NavMenu>
         </MenuWrapper>
       </Nav>
-      {/* } */}
       <MobileNav
         onClick={() => {
           showSidebar()
