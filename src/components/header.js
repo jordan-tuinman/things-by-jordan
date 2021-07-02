@@ -20,8 +20,8 @@ const Header = () => {
   const url = typeof window !== "undefined" ? window.location.pathname : ""
 
   const siteData = useSiteDataQuery()
-  const [navbar, setNavbar] = useState(true)
-  const [bool, setBool] = useState(true)
+  const [navbar, setNavbar] = useState(false)
+  const [bool, setBool] = useState(false)
   const [sidebar, setSidebar] = useState(false)
 
   function toggle() {
@@ -29,9 +29,9 @@ const Header = () => {
   }
 
   useEffect(() => {
-    if (url === "/") {
-      setNavbar(false)
-      setBool(false)
+    if (url !== "/") {
+      setNavbar(true)
+      setBool(true)
     }
   }, [url])
 
