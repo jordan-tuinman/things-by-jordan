@@ -31,7 +31,10 @@ const Header = () => {
   if (isBrowser) {
     window.addEventListener("scroll", changeNavColor)
     function changeNavColor() {
-      if (window.scrollY >= 1) {
+      if (window.scrollY >= 2) {
+        return null
+      } else if (window.scrollY >= 1) {
+        console.log(window.scrollY)
         showMenu()
       } else {
         closeMenu()
