@@ -135,6 +135,7 @@ const MobileNav = styled.nav`
   @media screen and (max-width: 480px) {
     position: sticky;
     top: 0;
+    margin-left: 80%;
     background: transparent;
     height: 100px;
     display: flex;
@@ -142,6 +143,7 @@ const MobileNav = styled.nav`
     justify-content: flex-end;
     padding: 0.5rem 1rem;
     z-index: 90;
+    width: 20%;
   }
 `
 

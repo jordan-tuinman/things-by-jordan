@@ -126,7 +126,10 @@ const WorkPage = () => {
                   }}
                 >
                   <TextWrap>
-                    <TitleWrap>
+                    <TitleWrap
+                      id={workData[projectId].node.nameOfProject}
+                      href={`#${workData[projectId].node.nameOfProject}`}
+                    >
                       <ProjectTitle>{item.node.nameOfProject}</ProjectTitle>
                       <ProjectDate>{item.node.projectDate}</ProjectDate>
                     </TitleWrap>
@@ -336,11 +339,13 @@ const InfoWrap = styled.div`
   }
 `
 
-const TitleWrap = styled.div`
+const TitleWrap = styled.a`
   display: flex;
   align-items: start;
   justify-content: space-between;
   width: 100%;
+  text-decoration: none;
+  color: inherit;
 `
 
 const ProjectTitle = styled.p`
