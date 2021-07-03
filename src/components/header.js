@@ -100,15 +100,19 @@ const Header = () => {
           </NavMenu>
         </MenuWrapper>
       </Nav>
-      <MobileBanner>
-        <NavLink to="/">
-          <Logo
-            className={navbar || bool ? "logo active" : "logo"}
-            image={siteData.siteLogo.gatsbyImageData}
-            alt={siteData.siteLogo.title}
-          />
-        </NavLink>
-      </MobileBanner>
+      {url === "/" ? (
+        <></>
+      ) : (
+        <MobileBanner>
+          <NavLink to="/">
+            <Logo
+              className={navbar || bool ? "logo active" : "logo"}
+              image={siteData.siteLogo.gatsbyImageData}
+              alt={siteData.siteLogo.title}
+            />
+          </NavLink>
+        </MobileBanner>
+      )}
       <MobileNav
         onClick={() => {
           showSidebar()
