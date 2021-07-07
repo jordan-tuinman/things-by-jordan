@@ -289,6 +289,7 @@ const ColumnTwo = styled.div`
 
   p {
     padding-left: 1rem;
+    padding-right: 1.5rem;
   }
 
   &:hover {
