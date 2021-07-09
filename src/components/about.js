@@ -45,14 +45,20 @@ const About = ({
               }}
             />
           </TextWrapper>
-          <TextWrapper>
-            {technologies ? (
+          {technologies ? (
+            <TextWrapper>
               <Technologies title="Some technologies I know" />
-            ) : (
-              <></>
-            )}
-          </TextWrapper>
-          <TextWrapper>{learning ? <Learning /> : <></>}</TextWrapper>
+            </TextWrapper>
+          ) : (
+            <></>
+          )}
+          {learning ? (
+            <TextWrapper>
+              <Learning />
+            </TextWrapper>
+          ) : (
+            <></>
+          )}
           {button ? (
             <ButtonWrapper>
               <Button primary="true" round="true" to="/about">
@@ -62,32 +68,49 @@ const About = ({
           ) : (
             <></>
           )}
-          {socials ? (
-            <Wrapper>
-              <SocialIcon
-                target="_blank"
-                href="https://github.com/jordan-tuinman"
-              >
-                <FaGithub />
-              </SocialIcon>
-              {/* <SocialIcon target="_blank" href="https://www.instagram.com/jordantuna/">
-        <FaInstagram />
-      </SocialIcon> */}
-              <SocialIcon
-                target="_blank"
-                href="https://www.linkedin.com/in/jordan-tuinman/"
-              >
-                <FaLinkedin />
-              </SocialIcon>
-              <SocialIcon href="mailto:thingsbyjordan@gmail.com">
-                <MdEmail />
-              </SocialIcon>
-            </Wrapper>
-          ) : (
-            <></>
-          )}
         </ColumnTwo>
       </ContentWrapper>
+      {socials ? (
+        <BottomRow>
+          <TextWrapper>
+            <Text>
+              <p>
+                Whether you would like to have a chat about work, or just get in
+                touch to say 'hi', I would love to hear from you!
+              </p>
+              <p>
+                Feel free to email me at{" "}
+                <a href="mailto:thingsbyjordan@gmail.com">
+                  thingsbyjordan@gmail.com
+                </a>
+                , or connect with me on Linkedin and message me there.
+              </p>
+            </Text>
+          </TextWrapper>
+          <SocialsWrapper>
+            <SocialIcon
+              target="_blank"
+              href="https://github.com/jordan-tuinman"
+            >
+              <FaGithub />
+            </SocialIcon>
+            {/* <SocialIcon target="_blank" href="https://www.instagram.com/jordantuna/">
+        <FaInstagram />
+      </SocialIcon> */}
+            <SocialIcon
+              target="_blank"
+              href="https://www.linkedin.com/in/jordan-tuinman/"
+            >
+              <FaLinkedin />
+            </SocialIcon>
+            <SocialIcon href="mailto:thingsbyjordan@gmail.com">
+              <MdEmail />
+            </SocialIcon>
+          </SocialsWrapper>
+        </BottomRow>
+      ) : (
+        <></>
+      )}
     </AboutContainer>
   )
 }
@@ -141,14 +164,14 @@ const AboutImage = styled(GatsbyImage)`
   }
 `
 
-const Wrapper = styled.div`
+const SocialsWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: center;
   align-items: start;
   width: 100%;
   background: #fcfcfc;
-  padding: 0 0.5rem;
+  padding: 1rem 0.5rem;
   font-size: 1.5rem;
 `
 
@@ -201,4 +224,24 @@ const TextWrapper = styled.div`
 `
 const ButtonWrapper = styled.div`
   padding: 1rem 1rem;
+`
+
+const BottomRow = styled.div`
+  display: grid;
+  grid-template-rows: 1fr;
+  padding-top: 1rem;
+  width: 100%;
+  text-align: center;
+
+  p {
+    font-weight: bold;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0 4.5rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 0 1rem;
+  }
 `
