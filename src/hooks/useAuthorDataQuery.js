@@ -11,6 +11,11 @@ export const useAuthorDataQuery = () => {
                 html
               }
             }
+            learning {
+              childMarkdownRemark {
+                html
+              }
+            }
             authorImage {
               description
               gatsbyImageData

@@ -23,6 +23,7 @@ const IndexPage = () => {
         textContent={authorData.brief.childMarkdownRemark.html}
         title="Some things about me"
         technologies={true}
+        learning={true}
         button={true}
       />
       <Work heading="Recent Work Things" />

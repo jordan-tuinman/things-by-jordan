@@ -12,12 +12,14 @@ import Button from "./button"
 // Contentful data:
 import { useAuthorDataQuery } from "../hooks/useAuthorDataQuery"
 import Technologies from "./technologies"
+import Learning from "./learning"
 
 const About = ({
   heading,
   textContent,
   title,
   technologies,
+  learning,
   button,
   socials,
 }) => {
@@ -44,8 +46,13 @@ const About = ({
             />
           </TextWrapper>
           <TextWrapper>
-            {technologies ? <Technologies title="Technologies" /> : <></>}
+            {technologies ? (
+              <Technologies title="Some technologies I know" />
+            ) : (
+              <></>
+            )}
           </TextWrapper>
+          <TextWrapper>{learning ? <Learning /> : <></>}</TextWrapper>
           {button ? (
             <ButtonWrapper>
               <Button primary="true" round="true" to="/about">
@@ -124,8 +131,6 @@ const ColumnOne = styled.div`
 `
 
 const AboutImage = styled(GatsbyImage)`
-  height: 80vh;
-
   @media screen and (max-width: 1050px) {
     filter: brightness(100%);
     height: 60vh;
