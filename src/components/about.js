@@ -224,6 +224,7 @@ const TextWrapper = styled.div`
 `
 const ButtonWrapper = styled.div`
   padding: 1rem 1rem;
+  padding-top: 1.5rem;
 `
 
 const BottomRow = styled.div`
