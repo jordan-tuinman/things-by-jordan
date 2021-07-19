@@ -54,9 +54,8 @@ body {
 }
 
 .tech:hover {
-  transition: 0.3s !important;
-  transform: translateY(-4px);
-  cursor: pointer;
+  filter: none;
+  transform: scale(1.5);
 }
 
 .mobileNav {
