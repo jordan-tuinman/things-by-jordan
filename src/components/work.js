@@ -135,6 +135,7 @@ const ProjectInfo = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0.5rem 1rem;
+  box-shadow: 0px 8px 8px 0px rgb(53 58 64 / 60%);
 
   @media screen and (max-width: 280px) {
     padding: 0 1rem;
