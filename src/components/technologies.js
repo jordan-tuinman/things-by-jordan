@@ -103,80 +103,98 @@ const Heading = styled.p`
 const WordpressIcon = styled.a`
   filter: grayscale(50%);
   color: #21759b;
+  transition: transform 0.2s;
 
   &:hover {
     filter: none;
+    transform: scale(1.5);
   }
 `
 
 const HtmlIcon = styled.a`
   filter: grayscale(50%);
   color: #f06529;
+  transition: transform 0.2s;
 
   &:hover {
     filter: none;
+    transform: scale(1.5);
   }
 `
 
 const CssIcon = styled.a`
   filter: grayscale(50%);
   color: #2965f1;
+  transition: transform 0.2s;
 
   &:hover {
     filter: none;
+    transform: scale(1.5);
   }
 `
 
 const JsIcon = styled.a`
   filter: grayscale(50%);
   color: #ffd43b;
+  transition: transform 0.2s;
 
   &:hover {
     filter: none;
+    transform: scale(1.5);
   }
 `
 
 const ReactIcon = styled.a`
   filter: grayscale(50%);
   color: #61dbfb;
+  transition: transform 0.2s;
 
   &:hover {
     filter: none;
+    transform: scale(1.5);
   }
 `
 
 const ReduxIcon = styled.a`
   filter: grayscale(50%);
   color: #764abc;
+  transition: transform 0.2s;
 
   &:hover {
     filter: none;
+    transform: scale(1.5);
   }
 `
 
 const GatsbyIcon = styled.a`
   filter: grayscale(50%);
   color: #663399;
+  transition: transform 0.2s;
 
   &:hover {
     filter: none;
+    transform: scale(1.5);
   }
 `
 
 const NodeIcon = styled.a`
   filter: grayscale(50%);
   color: #3c873a;
+  transition: transform 0.2s;
 
   &:hover {
     filter: none;
+    transform: scale(1.5);
   }
 `
 
 const JestIcon = styled.a`
   filter: grayscale(50%);
   color: #ce375c;
+  transition: transform 0.2s;
 
   &:hover {
     filter: none;
+    transform: scale(1.5);
   }
 `
