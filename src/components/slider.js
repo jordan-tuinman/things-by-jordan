@@ -10,6 +10,7 @@ const Slider = ({ slides, selectedSlide }) => {
   function closeModal() {
     const modal = document.getElementById("myModal")
     modal.style.display = "none"
+    setCurrent(selectedSlide)
   }
 
   const [current, setCurrent] = useState()
@@ -45,12 +46,12 @@ const Slider = ({ slides, selectedSlide }) => {
             className={index === current ? "slide active" : "slide"}
             key={index}
           >
-            <CloseButton>
-              <CgClose
-                onClick={() => {
-                  closeModal()
-                }}
-              />
+            <CloseButton
+              onClick={() => {
+                closeModal()
+              }}
+            >
+              <CgClose />
             </CloseButton>
             {index === current && (
               <GatsbyImage

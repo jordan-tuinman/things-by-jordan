@@ -46,12 +46,12 @@ const WorkSlider = ({ slides, selectedSlide }) => {
             className={index === current ? "slide active" : "slide"}
             key={index}
           >
-            <CloseButton>
-              <CgClose
-                onClick={() => {
-                  closeModal()
-                }}
-              />
+            <CloseButton
+              onClick={() => {
+                closeModal()
+              }}
+            >
+              <CgClose />
             </CloseButton>
             {index === current && (
               <>
