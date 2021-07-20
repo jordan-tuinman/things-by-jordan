@@ -10,6 +10,7 @@ const WorkSlider = ({ slides, selectedSlide }) => {
   function closeModal() {
     const modal = document.getElementById("myModal")
     modal.style.display = "none"
+    setCurrent(selectedSlide)
   }
 
   const [current, setCurrent] = useState()
