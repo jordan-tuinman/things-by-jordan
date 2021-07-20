@@ -24,6 +24,7 @@ const WorkPage = () => {
   useEffect(() => {
     if (selected > 0) {
       setProjectId(selected)
+      setSelectedProject(selected)
     }
   }, [selected])
 
