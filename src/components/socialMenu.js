@@ -11,9 +11,9 @@ const SocialMenu = () => {
       <SocialIcon target="_blank" href="https://github.com/jordan-tuinman">
         <FaGithub />
       </SocialIcon>
-      {/* <SocialIcon target="_blank" href="https://www.instagram.com/jordantuna/">
+      <SocialIcon target="_blank" href="https://www.instagram.com/jordantuna/">
         <FaInstagram />
-      </SocialIcon> */}
+      </SocialIcon>
       <SocialIcon
         target="_blank"
         href="https://www.linkedin.com/in/jordan-tuinman/"

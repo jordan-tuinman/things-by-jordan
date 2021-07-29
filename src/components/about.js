@@ -94,9 +94,12 @@ const About = ({
             >
               <FaGithub />
             </SocialIcon>
-            {/* <SocialIcon target="_blank" href="https://www.instagram.com/jordantuna/">
-        <FaInstagram />
-      </SocialIcon> */}
+            <SocialIcon
+              target="_blank"
+              href="https://www.instagram.com/jordantuna/"
+            >
+              <FaInstagram />
+            </SocialIcon>
             <SocialIcon
               target="_blank"
               href="https://www.linkedin.com/in/jordan-tuinman/"
