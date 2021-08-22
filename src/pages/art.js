@@ -125,8 +125,6 @@ const ArtCard = styled.div`
   transition: 0.3s !important;
 
   &:hover {
-    transform: translateY(-2px);
-    filter: brightness(100%);
     cursor: pointer;
   }
 
@@ -139,6 +137,14 @@ const ArtImage = styled(GatsbyImage)`
   height: 100%;
   max-width: 100%;
   filter: brightness(60%);
+
+  &:hover {
+    filter: brightness(100%);
+  }
+
+  @media screen and (max-width: 1050px) {
+    filter: brightness(100%);
+  }
 `
 
 const TextWrap = styled.div`
