@@ -1,9 +1,5 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
-import { GatsbyImage } from "gatsby-plugin-image"
-
-// React icons:
-import { CgClose } from "react-icons/cg"
 
 // Components:
 import WorkSlider from "./workSlider"

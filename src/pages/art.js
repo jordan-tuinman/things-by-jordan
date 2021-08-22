@@ -9,7 +9,6 @@ import ArtModal from "../components/artModal"
 
 // Contentful data:
 import { useArtDataQuery } from "../hooks/useArtDataQuery"
-import { node } from "prop-types"
 
 const ArtPage = () => {
   const artData = useArtDataQuery()
