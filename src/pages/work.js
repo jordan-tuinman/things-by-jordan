@@ -292,11 +292,6 @@ const ColumnTwo = styled.div`
     padding-left: 1rem;
     padding-right: 1.5rem;
   }
-
-  &:hover {
-    color: #000;
-    transform: translateY(-2px);
-  }
 `
 
 const WorkHeading = styled.p`
