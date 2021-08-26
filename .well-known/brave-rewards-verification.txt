@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: thingsbyjordan.com
+Token: 14fdf10be423db74f5eaeb025c932ecf7660817ad959c14ae2f65a9b0d08a2f2
