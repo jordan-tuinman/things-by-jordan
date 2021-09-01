@@ -34,12 +34,14 @@ const Slider = ({ slides, selectedSlide }) => {
 
   return (
     <section className="slider">
-      <IoIosArrowBack
+      <span
         className="left-arrow"
         onClick={() => {
           prevSlide()
         }}
-      />
+      >
+        <IoIosArrowBack />
+      </span>
       {slides.map((slide, index) => (
         <ImageWrapper key={index}>
           <div
@@ -63,12 +65,14 @@ const Slider = ({ slides, selectedSlide }) => {
           </div>
         </ImageWrapper>
       ))}
-      <IoIosArrowForward
+      <span
         className="right-arrow"
         onClick={() => {
           nextSlide()
         }}
-      />
+      >
+        <IoIosArrowForward />
+      </span>
     </section>
   )
 }
