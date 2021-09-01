@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 // Components:
-import Slider from "./slider"
+import ArtSlider from "./artSlider"
 
 // Contentful data:
 import { useArtDataQuery } from "../hooks/useArtDataQuery"
@@ -13,7 +13,7 @@ const ArtModal = ({ selected }) => {
   return (
     <ModalContainer id="myModal" className="modal">
       <ModalContent>
-        <Slider slides={artData} selectedSlide={selected} />
+        <ArtSlider slides={artData} selectedSlide={selected} />
       </ModalContent>
     </ModalContainer>
   )

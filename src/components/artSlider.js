@@ -6,7 +6,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io"
 import { CgClose } from "react-icons/cg"
 
-const Slider = ({ slides, selectedSlide }) => {
+const ArtSlider = ({ slides, selectedSlide }) => {
   function closeModal() {
     const modal = document.getElementById("myModal")
     modal.style.display = "none"
@@ -77,7 +77,7 @@ const Slider = ({ slides, selectedSlide }) => {
   )
 }
 
-export default Slider
+export default ArtSlider
 
 const ImageWrapper = styled.div`
   display: flex;
