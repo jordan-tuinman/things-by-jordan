@@ -49,7 +49,7 @@ const Header = () => {
   }
 
   function showMenu() {
-    if (navbar || bool == false) {
+    if (navbar || bool === false) {
       setNavbar(true)
       setBool(true)
     }
@@ -262,6 +262,7 @@ const BurgerMenu = styled(HiMenuAlt4)`
   cursor: pointer;
   color: #fff;
   z-index: 100;
+  border-radius: 2px;
 `
 
 const BurgerMenuClose = styled(CgClose)`
@@ -272,6 +273,7 @@ const BurgerMenuClose = styled(CgClose)`
   cursor: pointer;
   color: #fff;
   z-index: 100;
+  border-radius: 2px;
 `
 
 const NavMenu = styled.div`
