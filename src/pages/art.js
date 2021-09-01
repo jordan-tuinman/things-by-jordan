@@ -61,7 +61,7 @@ const ArtContainer = styled.div`
   align-items: center;
   min-height: 100%;
   width: 100%;
-  background: #fcfcfc;
+  background-color: #fcfcfc;
   color: #000;
   padding: 3rem calc((100vw - 1300px) / 2);
 
@@ -97,14 +97,16 @@ const Text = styled.div`
 `
 
 const ImagesWrapper = styled.div`
-  background-color: #0c0c0c;
+  background-color: #fcfcfc;
   display: grid;
+  padding: 0 1rem;
+  padding-bottom: 1rem;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
+  grid-gap: 10px;
 
   @media screen and (max-width: 1050px) {
     grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
   }
 
   @media screen and (max-width: 480px) {

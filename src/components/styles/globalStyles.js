@@ -123,18 +123,19 @@ body {
 
 .right-arrow {
   position: absolute;
-  top: 50%;
   right: 3%;
   font-size: 2.5rem;
-  color: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
+  color: #fff;
   opacity: 0.7;
   z-index: 10;
   cursor: pointer;
   user-select: none;
+
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 1;
+  }
 
   @media screen and (max-width: 480px) {
     font-size: 2rem;
@@ -143,18 +144,19 @@ body {
 
 .left-arrow {
   position: absolute;
-  top: 50%;
   left: 3%;
   font-size: 2.5rem;
-  color: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
+  color: #fff;
   opacity: 0.7;
   z-index: 10;
   cursor: pointer;
   user-select: none;
+
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 1;
+  }
 
   @media screen and (max-width: 480px) {
     font-size: 2rem;

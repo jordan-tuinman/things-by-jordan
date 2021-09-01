@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 // React icons:
-import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai"
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io"
 import { CgClose } from "react-icons/cg"
 
 const Slider = ({ slides, selectedSlide }) => {
@@ -34,7 +34,7 @@ const Slider = ({ slides, selectedSlide }) => {
 
   return (
     <section className="slider">
-      <AiFillLeftCircle
+      <IoIosArrowBack
         className="left-arrow"
         onClick={() => {
           prevSlide()
@@ -63,7 +63,7 @@ const Slider = ({ slides, selectedSlide }) => {
           </div>
         </ImageWrapper>
       ))}
-      <AiFillRightCircle
+      <IoIosArrowForward
         className="right-arrow"
         onClick={() => {
           nextSlide()
@@ -90,18 +90,14 @@ const CloseButton = styled.div`
   font-size: clamp(1rem, 5vw, 2rem);
   cursor: pointer;
   color: #fff;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
+  opacity: 0.7;
   z-index: 100;
 
   &:hover,
   &:focus {
-    color: black;
     text-decoration: none;
     cursor: pointer;
+    opacity: 1;
   }
 
   @media screen and (max-width: 480px) {
