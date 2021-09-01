@@ -123,18 +123,24 @@ body {
 
 .right-arrow {
   position: absolute;
-  right: 3%;
+  right: 1.4%;
   font-size: 2.5rem;
   color: #fff;
   opacity: 0.7;
   z-index: 10;
   cursor: pointer;
   user-select: none;
+  padding: 0.5rem 0.5rem 0 0.5rem;
 
   &:hover {
     text-decoration: none;
     cursor: pointer;
     opacity: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
   }
 
   @media screen and (max-width: 480px) {
@@ -144,18 +150,24 @@ body {
 
 .left-arrow {
   position: absolute;
-  left: 3%;
+  left: 1.4%;
   font-size: 2.5rem;
   color: #fff;
   opacity: 0.7;
   z-index: 10;
   cursor: pointer;
   user-select: none;
+  padding: 0.5rem 0.5rem 0 0.5rem;
 
   &:hover {
     text-decoration: none;
     cursor: pointer;
     opacity: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
   }
 
   @media screen and (max-width: 480px) {

@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 // React icons:
-import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai"
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io"
 import { CgClose } from "react-icons/cg"
 
 const WorkSlider = ({ slides, selectedSlide }) => {
@@ -34,12 +34,14 @@ const WorkSlider = ({ slides, selectedSlide }) => {
 
   return (
     <section className="slider">
-      <AiFillLeftCircle
+      <span
         className="left-arrow"
         onClick={() => {
           prevSlide()
         }}
-      />
+      >
+        <IoIosArrowBack />
+      </span>
       {slides.map((slide, index) => (
         <ImageWrapper key={index}>
           <div
@@ -68,12 +70,14 @@ const WorkSlider = ({ slides, selectedSlide }) => {
           </div>
         </ImageWrapper>
       ))}
-      <AiFillRightCircle
+      <span
         className="right-arrow"
         onClick={() => {
           nextSlide()
         }}
-      />
+      >
+        <IoIosArrowForward />
+      </span>
     </section>
   )
 }
@@ -86,27 +90,28 @@ const ImageWrapper = styled.div`
   align-items: center;
 `
 
-const CloseButton = styled.div`
+const CloseButton = styled.span`
   position: absolute;
   display: block;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0 0.5rem;
   top: 0;
   right: 5%;
   font-size: clamp(1rem, 5vw, 2rem);
   cursor: pointer;
   color: #fff;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
+  opacity: 0.7;
   z-index: 100;
 
   &:hover,
   &:focus {
-    color: black;
     text-decoration: none;
     cursor: pointer;
+    opacity: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
   }
 
   @media screen and (max-width: 480px) {

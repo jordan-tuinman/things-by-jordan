@@ -84,7 +84,7 @@ const ImageWrapper = styled.div`
 const CloseButton = styled.div`
   position: absolute;
   display: block;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0 0.5rem;
   top: 0;
   right: 5%;
   font-size: clamp(1rem, 5vw, 2rem);
@@ -98,6 +98,11 @@ const CloseButton = styled.div`
     text-decoration: none;
     cursor: pointer;
     opacity: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
   }
 
   @media screen and (max-width: 480px) {
